@@ -16,6 +16,38 @@ public class Uclick_user_info {
 	@Column
 	private Long id;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getPhoneList() {
+		return phoneList;
+	}
+
+	public void setPhoneList(int phoneList) {
+		this.phoneList = phoneList;
+	}
+
 	@Column(length=20)
 	private String name;
 	
