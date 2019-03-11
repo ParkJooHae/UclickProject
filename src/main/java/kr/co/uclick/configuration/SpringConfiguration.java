@@ -41,7 +41,7 @@ public class SpringConfiguration {
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://192.168.23.27:3306/dbtest");
+		dataSource.setUrl("jdbc:mysql://192.168.23.27:3306/UclickDB");
 		dataSource.setUsername("root");
 		dataSource.setPassword("pjh8134");
 		return dataSource;
