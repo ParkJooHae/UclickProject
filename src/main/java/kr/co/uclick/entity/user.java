@@ -15,7 +15,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)// L2 Cache
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)// L2 Cache
 @TableGenerator(name = "user")
 public class user {
 	
