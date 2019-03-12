@@ -19,26 +19,28 @@ public class PhoneServiceImpl implements PhoneService {
 	
 	@Override
 	public List<Phone> findByNumContaining(String number) {
-		// TODO Auto-generated method stub
-		return null;
+		return phoneRepository.findByNumContaining(number);
 	}
 
 	@Override
 	public void AddNum(Long id, String num) {
-		User usr = userRepository.getOne(id);
-		Collection<Phone> phone =  usr.getPhoneList(); // 번호 여러개 수정을 어떻게 할까 
-		
+		User usr = userRepository.findById(id).get();
+		Phone phone = new Phone(num);
+		phone.setUser(usr);
+		phoneRepository.save(phone);
 	}
 
 	@Override
 	public void UpdateNum(Long id, String num) {
-		// TODO Auto-generated method stub
-		
+		Phone phone = phoneRepository.findById(id).get();
+		phone.setNum(num);
+		phoneRepository.save(phone);
 	}
 
 	@Override
-	public void deleteNum(Long id, String num) {
-		// TODO Auto-generated method stub
+	public void deleteNum(Long id, String num) {		
+		Phone phone = phoneRepository.findById(id).get();
+		phoneRepository.delete(phone);
 		
 	}
 	

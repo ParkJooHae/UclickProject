@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
 import kr.co.uclick.repository.UserRepository;
 import kr.co.uclick.configuration.SpringConfiguration;
 import kr.co.uclick.entity.Phone;
@@ -21,7 +23,8 @@ public class UserRepositoryTest {
 	UserRepository userRepository;
 	@Autowired
 	PhoneRepository phoneRepository;
-
+	
+	@Ignore
 	@Test
 	public void test() {
 		User testt = new User("park","운영","사원");//등록확인
@@ -32,7 +35,6 @@ public class UserRepositoryTest {
 		User testtt = new User("kim","인사","대리");//등록확인
 		testtt.addPhone(new Phone("010-2222-1111"));
 		testtt.addPhone(new Phone("010-2222-2222"));
-		
 		
 		userRepository.save(testt);
 		userRepository.save(testtt);
@@ -65,14 +67,18 @@ public class UserRepositoryTest {
 		usr.setDepart("기술지원");
 		usr.setPosition("부장");
 		userRepository.save(usr);
-		
 	}
-	@Ignore
+	
+	
 	@Test
 	public void testRepo5() {
-		List<Phone> list = phoneRepository.findByNumContaining("1111");
-		System.out.println(list);
+		User usr = userRepository.findById(2L).get();
+		Phone phone = new Phone("000-2424-2424");
+		//usr.addPhone(new Phone("000-2424-2424"));
+		phone.setUser(usr);
+		phoneRepository.save(phone);
 	}
+	
 	@Ignore
 	@Test
 	public void testRepo6() {
