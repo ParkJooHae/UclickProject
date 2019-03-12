@@ -38,6 +38,9 @@ public class User {
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user",fetch=FetchType.EAGER)
 	private Collection<Phone> phoneList;//전화부
 	
+	public User() {
+		
+	}
 	
 	public User(String string, String string2, String string3) {
 		this.name = string;

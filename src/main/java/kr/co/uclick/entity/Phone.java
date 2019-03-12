@@ -21,14 +21,18 @@ public class Phone {
 	private Long id;
 	
 	@Column
-	private String phone_num;//전화번호
+	private String num;//전화번호
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="user_id")//user의 id를 key로
 	private User user;
-
+	
+	public Phone() {
+	
+	}
+	
 	public Phone(String string) {
-		this.phone_num = string;
+		this.num = string;
 	}
 
 	public Long getId() {
@@ -40,11 +44,11 @@ public class Phone {
 	}
 
 	public String getPhone_num() {
-		return phone_num;
+		return num;
 	}
 
 	public void setPhone_num(String phone_num) {
-		this.phone_num = phone_num;
+		this.num = phone_num;
 	}
 
 	public User getUser() {

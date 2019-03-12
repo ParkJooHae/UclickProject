@@ -7,8 +7,7 @@ import kr.co.uclick.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	
 	public List<User> findUserByName(String name);//검색
-	public List<User> findUserByNameContaining(String name);//검색
-	public List<User> findAllByOrderByIdDesc();//전체 조회
-	
+	public List<User> findUserByNameContaining(String name);//포함 검색
+	public List<User> findAllByOrderByIdDesc();//전체검색
 	
 }
