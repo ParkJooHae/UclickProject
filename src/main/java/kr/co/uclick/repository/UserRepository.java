@@ -5,7 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import kr.co.uclick.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-	public List<User> findUserByName(String name);
+	
+	public List<User> findUserByName(String name);//검색
+	public List<User> findUserByNameContaining(String name);//검색
+	public List<User> findAllByOrderByIdDesc();//전체 조회
 	
 	
 }

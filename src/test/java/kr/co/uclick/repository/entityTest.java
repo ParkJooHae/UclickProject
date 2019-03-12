@@ -1,4 +1,4 @@
-package kr.co.uclick.entity;
+package kr.co.uclick.repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
