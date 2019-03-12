@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 
 @Entity
-@TableGenerator(name = "phone")// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
+@TableGenerator(name = "phone",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
 public class Phone {
 	
 	@Id
@@ -23,7 +23,7 @@ public class Phone {
 	@Column
 	private String num;//전화번호
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="user_id")//user의 id를 key로
 	private User user;
 	
@@ -43,12 +43,12 @@ public class Phone {
 		this.id = id;
 	}
 
-	public String getPhone_num() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setPhone_num(String phone_num) {
-		this.num = phone_num;
+	public void setNum(String num) {
+		this.num = num;
 	}
 
 	public User getUser() {

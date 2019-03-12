@@ -16,7 +16,7 @@ import javax.persistence.TableGenerator;
 
 
 @Entity
-@TableGenerator(name = "user")
+@TableGenerator(name = "user",allocationSize = 1)
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)// L2 Cache
 public class User {
 	
@@ -35,7 +35,7 @@ public class User {
 	private String position;//직급
 
 	@Column
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="user",fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private Collection<Phone> phoneList;//전화부
 	
 	public User() {
