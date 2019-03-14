@@ -53,6 +53,9 @@ public class User {
 	}
 
 	public void setSpecial(String special) {
+		if(special ==null) {
+			special = "해당 없음";
+		}
 		this.special = special;
 	}
 

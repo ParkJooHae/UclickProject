@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService {
 	public List<User> findAllByOrderByIdDesc() {
 		return userRepository.findAllByOrderByIdDesc();
 	}
+	
+
+	@Override
+	public List<User> findAllById(Long id) {
+		return userRepository.findAllById(id);
+	}
 
 	@Override
 	public void Create(String name, String depart, String position, String address, String special) {

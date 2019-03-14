@@ -20,19 +20,26 @@ public class UserServiceTest {
 	@Autowired
 	PhoneService phoneService;
 	
-	@Ignore
-	@Test
-	public void test1() {// 정보 수정
-		userService.Update(2L, "정보수정", "부서명", "직급","경기도","휴가중");
-		
-	}
 	
 	@Test
+	public void test1() {// 정보 수정
+		//userService.Update(2L, "정보수정", "부서명", "직급","경기도","휴가중");
+		
+		userService.findAllById(1L);
+	}
+	
+	@Ignore
+	@Test
 	public void test2() {// 사원 추가/ 삭제
-//		userService.Create("Jung", "사장", "사장"); // 신규 작성
-//		phoneService.AddNum(3L, "000-3333-6666");
-//		phoneService.AddNum(3L, "000-3333-7777");
-		userService.Delete(3L);
+		userService.Create("Jung", "사장", "사장","경기","없음"); // 신규 작성
+		phoneService.AddNum(1L, "000-3333-6666");
+		phoneService.AddNum(1L, "000-3333-7777");
+		
+		userService.Create("Park", "개발", "부장","경기","없음"); // 신규 작성
+		phoneService.AddNum(2L, "000-9999-9999");
+		phoneService.AddNum(2L, "000-8888-8888");
+		
+		//userService.Delete(3L);
 		
 	}
 	

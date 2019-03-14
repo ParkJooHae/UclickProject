@@ -46,6 +46,11 @@ public class PhoneServiceImpl implements PhoneService {
 		phoneRepository.delete(phone);
 		
 	}
+
+	@Override
+	public List<Phone> findByUserId(Long id) {
+		return phoneRepository.findByUserId(id);
+	}
 	
 	
 
