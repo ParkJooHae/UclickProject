@@ -42,26 +42,26 @@ public class UserRepositoryTest {
 	
 	@Ignore
 	@Test
-	public void testRepo1() {
+	public void testRepo1() {// 조회 테스트
 		List<User> list = userRepository.findAll();
 		System.out.println(list);
 	}
 	@Ignore
 	@Test
-	public void testRepo2() {
+	public void testRepo2() {// 이름 검색 테스트
 		List<User> list = userRepository.findUserByName("park");
 		System.out.println(list);
 	}
 	
 	@Ignore
 	@Test
-	public void testRepo3() {
+	public void testRepo3() { // 번호 검색 테스트
 		List<Phone> list = phoneRepository.findByNumContaining("1111");
 		System.out.println(list);
 	}
 	@Ignore
 	@Test
-	public void testRepo4() {
+	public void testRepo4() {// 사원 등록 테스트
 		User usr = new User();
 		usr.setName("Lee");
 		usr.setDepart("기술지원");
@@ -71,7 +71,7 @@ public class UserRepositoryTest {
 	
 	
 	@Test
-	public void testRepo5() {
+	public void testRepo5() { // 번호 등록 테스트
 		User usr = userRepository.findById(2L).get();
 		Phone phone = new Phone("000-2424-2424");
 		//usr.addPhone(new Phone("000-2424-2424"));
@@ -79,12 +79,6 @@ public class UserRepositoryTest {
 		phoneRepository.save(phone);
 	}
 	
-	@Ignore
-	@Test
-	public void testRepo6() {
-		List<Phone> list = phoneRepository.findByNumContaining("1111");
-		System.out.println(list);
-	}
 	
 	
 }

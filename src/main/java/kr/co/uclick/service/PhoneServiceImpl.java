@@ -1,15 +1,18 @@
 package kr.co.uclick.service;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.uclick.entity.Phone;
 import kr.co.uclick.entity.User;
 import kr.co.uclick.repository.PhoneRepository;
 import kr.co.uclick.repository.UserRepository;
 
+@Service
+@Transactional
 public class PhoneServiceImpl implements PhoneService {
 	
 	@Autowired
@@ -38,7 +41,7 @@ public class PhoneServiceImpl implements PhoneService {
 	}
 
 	@Override
-	public void deleteNum(Long id, String num) {		
+	public void deleteNum(Long id) {		
 		Phone phone = phoneRepository.findById(id).get();
 		phoneRepository.delete(phone);
 		
