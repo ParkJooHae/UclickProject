@@ -35,20 +35,24 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void Create(String name, String depart, String position) {
+	public void Create(String name, String depart, String position, String address, String special) {
 		User usr = new User();
 		usr.setName(name);
 		usr.setDepart(depart);
 		usr.setPosition(position);
+		usr.setAddress(address);
+		usr.setSpecial(special);
 		userRepository.save(usr);
 	}
 	
 	@Override
-	public void Update(Long id, String name, String depart, String position) {
+	public void Update(Long id, String name, String depart, String position, String address, String special) {
 		User usr = userRepository.getOne(id);
 		usr.setName(name);
 		usr.setDepart(depart);
 		usr.setPosition(position);
+		usr.setAddress(address);
+		usr.setSpecial(special);
 		userRepository.save(usr);
 		
 	}

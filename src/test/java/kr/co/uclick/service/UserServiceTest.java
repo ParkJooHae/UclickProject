@@ -23,7 +23,7 @@ public class UserServiceTest {
 	@Ignore
 	@Test
 	public void test1() {// 정보 수정
-		userService.Update(2L, "정보수정", "부서명", "직급");
+		userService.Update(2L, "정보수정", "부서명", "직급","경기도","휴가중");
 		
 	}
 	

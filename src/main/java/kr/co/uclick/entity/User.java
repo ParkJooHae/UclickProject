@@ -33,6 +33,28 @@ public class User {
 	
 	@Column
 	private String position;//직급
+	
+	@Column
+	private String address; // 주소
+
+	@Column
+	private String special; // 특이사항
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getSpecial() {
+		return special;
+	}
+
+	public void setSpecial(String special) {
+		this.special = special;
+	}
 
 	@Column
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")

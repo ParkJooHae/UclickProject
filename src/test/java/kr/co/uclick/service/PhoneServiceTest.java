@@ -22,7 +22,7 @@ public class PhoneServiceTest {
 		
 		//phoneService.UpdateNum(11L, "010-4545-9292");// 번호 수정
 		
-		phoneService.deleteNum(11L); // 번호 삭제
+		//phoneService.deleteNum(11L); // 번호 삭제
 		
 		
 	}
