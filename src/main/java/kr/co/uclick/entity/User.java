@@ -16,12 +16,12 @@ import javax.persistence.TableGenerator;
 
 
 @Entity
-@TableGenerator(name = "user",allocationSize = 1)
+@TableGenerator(name = "usernum",allocationSize = 1)
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)// L2 Cache
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO,generator = "user")
+	@GeneratedValue(strategy = GenerationType.AUTO,generator = "usernum")
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	
@@ -61,7 +61,7 @@ public class User {
 
 	@Column
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
-	private Collection<Phone> phoneList;//전화부
+	private Collection<Phone> phones;//전화부
 	
 	public User() {
 		
@@ -105,21 +105,21 @@ public class User {
 		this.name = name;
 	}
 
-	public Collection<Phone> getPhoneList() {
-		if(phoneList == null) {
-			phoneList = new ArrayList<Phone>();
+	public Collection<Phone> getPhones() {
+		if(phones == null) {
+			phones = new ArrayList<Phone>();
 		}
-		return phoneList;
+		return phones;
 	}
 
-	public void setPhoneList(Collection<Phone> phoneList) {
-		this.phoneList = phoneList;
+	public void setPhones(Collection<Phone> phones) {
+		this.phones = phones;
 	}
 
-	public void addPhone(Phone phone) {
-		Collection<Phone> phoneList = getPhoneList();
-		phone.setUser(this);
-		phoneList.add(phone);
+	public void addPhone(Phone p) {
+		Collection<Phone> phones = getPhones();
+		p.setUser(this);
+		phones.add(p);
 		
 	}
 

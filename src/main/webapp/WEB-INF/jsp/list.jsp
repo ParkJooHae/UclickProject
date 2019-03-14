@@ -7,18 +7,17 @@
 </head>
 <body>
 	<table class="table table-hover" align="center">
-		<c:forEach items="${users}" var="user">
+		<c:forEach items="${users}" var="users" >
 			<tr align="center">
-				<td>${user.id}</td>
-				<td><a href="oneView?id=${user.id}">${user.name}</a></td>
-				<td>${user.name}</td>
-				<td>${user.depart}</td>
-				<td>${user.position}</td>
-				<td>${user.address}</td>
-				<td>${user.special}</td>
-				<td>
-				${user.phone.num}
-				</td>
+				<td>${users.id}</td>
+				<td><a href="oneView?id=${users.id}">${users.name}</a></td>
+				<td>${users.name}</td>
+				<td>${users.depart}</td>
+				<td>${users.position}</td>
+				<c:forEach items="${users.phones}" var="phone">
+					<td>${phone.num}</td>
+				</c:forEach>
+				
 			</tr>
 		</c:forEach>
 	</table>

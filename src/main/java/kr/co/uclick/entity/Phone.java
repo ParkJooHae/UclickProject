@@ -12,18 +12,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 
 @Entity
-@TableGenerator(name = "phone",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
+@TableGenerator(name = "phonenum",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
 public class Phone {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "phone")//generator로 두 테이블의 id가 겹치지 않도록 해준다.
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "phonenum")//generator로 두 테이블의 id가 겹치지 않도록 해준다.
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	
 	@Column
 	private String num;//전화번호
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
 	@JoinColumn(name="user_id")//user의 id를 key로
 	private User user;
 	
