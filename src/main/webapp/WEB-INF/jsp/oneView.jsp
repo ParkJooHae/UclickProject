@@ -32,7 +32,7 @@
 		</table>
 		<table class="table table-bordered" align="center" style="width:50%">
 			<c:forEach items="${oneViews.phones}" var="phones">
-					<tr><td>${phones.num}</td></tr><br><br>
+					<tr><td>${phones.num}</td><td style="text-align:right"><input type=button class="btn btn-primary" value="수정" onClick="location.href='save'"><input type=button class="btn btn-primary" value="삭제" onClick="location.href='delete'"></td></tr><br><br>
 			</c:forEach>
 		</table>
 	</c:forEach>
