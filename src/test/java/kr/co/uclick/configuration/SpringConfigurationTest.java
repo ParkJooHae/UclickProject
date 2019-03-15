@@ -18,10 +18,10 @@ public class SpringConfigurationTest {
 
 	@Test
 	public void test() {
-		Sample sample = new Sample();
-		sample.setName("park");
-		sample.setNumber(10);
-		sampleService.save(sample);
+//		Sample sample = new Sample();
+//		sample.setName("park");
+//		sample.setNumber(10);
+//		sampleService.save(sample);
 	}
 
 }

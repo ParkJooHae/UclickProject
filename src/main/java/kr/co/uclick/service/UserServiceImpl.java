@@ -17,20 +17,21 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 	
 	@Override
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	public List<User> findUserByName(String name) {
 		return userRepository.findUserByName(name);
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	public List<User> findUserByNameContaining(String name) {
 		return userRepository.findUserByNameContaining(name);
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+//	@Transactional(readOnly = true)
 	public List<User> findAllByOrderByIdDesc() {
+
 		return userRepository.findAllByOrderByIdDesc();
 	}
 	
@@ -66,6 +67,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void Delete(Long id) {
 		userRepository.deleteById(id);
+	}
+
+	@Override
+	public long countAll() {
+		return userRepository.count();
 	}
 
 	

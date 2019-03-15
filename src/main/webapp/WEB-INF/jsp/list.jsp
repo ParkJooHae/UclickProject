@@ -14,10 +14,11 @@
 				<td>${users.name}</td>
 				<td>${users.depart}</td>
 				<td>${users.position}</td>
-				<c:forEach items="${users.phones}" var="phone">
-					<td>${phone.num}</td>
+				<td>
+				<c:forEach items="${users.phones}" var="phones">
+					${phones.num}<br>
 				</c:forEach>
-				
+				</td>			
 			</tr>
 		</c:forEach>
 	</table>
