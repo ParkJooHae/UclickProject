@@ -31,19 +31,31 @@ public class UserController {
 	
 	@RequestMapping(value = "list")
 	public String list(Model model, @RequestParam HashMap<String,String> map) {
-		List<User> users = userService.findAllByOrderByIdDesc();
-		
-		
+		List<User> users = userService.findAllByOrderByIdDesc();	
 		for (User u: users) {
 			Hibernate.initialize(u.getPhones());
 		}
-		
 		model.addAttribute("users",users);
 		return "list";
 	}
 	
+	@RequestMapping(value = "oneView")
+	public String oneView(Model model,@RequestParam HashMap<String,String> map) {
+		String sid = map.get("id");
+		long id = Long.parseLong(sid);
+		List<User> users = userService.findAllById(id);
+		for (User u: users) {
+			Hibernate.initialize(u.getPhones());
+		}
+		model.addAttribute("oneView",users);	
+		return "oneView";
+	}
+	
 	@RequestMapping(value = "newForm")
 	public String newForm(Model model,@RequestParam HashMap<String,String> map) {
+		
+		
+		
 		return "newForm";
 	}
 	
