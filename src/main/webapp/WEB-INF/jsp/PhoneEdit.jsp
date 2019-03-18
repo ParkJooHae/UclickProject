@@ -34,10 +34,10 @@
 			<c:forEach items="${phoneEdit.phones}" var="phones">
 					<tr>
 					<td>
-						<c:set var="TextValue" value="${phones.num}"/>
-							<input name="addNum1"  size="3" style="width:10%;" value=" ${fn:substring(TextValue,0,3)}">
-							<input name="addNum2"  size="4" style="width:15%;" value=" ${fn:substring(TextValue,4,8)}">
-							<input name="addNum3"  size="4" style="width:15%;" value=" ${fn:substring(TextValue,9,13)}">
+								<input name="addNum1"  size="3" style="width:10%;" value="${fn:split(phones.num,'-')[0]}">
+								<input name="addNum2"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[1]}">
+								<input name="addNum3"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[2]}">
+					
 							<input type=hidden name="phoneid" value="${phones.id}">
 					</td>
 						<td style="text-align:right">
