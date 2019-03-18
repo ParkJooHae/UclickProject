@@ -12,20 +12,20 @@
 프로필 영역
 </div>
 <div class="container">
-<form>
+<form action="save">
 	<table class="table table-bordered" align="center" style="text-align:center;width:50%">
 	
-			<tr align="center"><td>이름</td><td> </td></tr>
-			<tr align="center"><td>부서</td><td> </td></tr>
-			<tr align="center"><td>직급</td><td> </td></tr>
-			<tr align="center"><td>주소</td><td> </td></tr>
-			<tr align="center"><td>비고</td><td> </td></tr>	
+			<tr align="center"><td  style="width:30%">이름</td><td ><input type=text name="name" maxlength="50" style="width:80%;"> </td></tr>
+			<tr align="center"><td>부서</td><td><input type=text name="depart" maxlength="50" style="width:80%;"></td></tr>
+			<tr align="center"><td>직급</td><td><input type=text name="position" maxlength="50" style="width:80%;"></td></tr>
+			<tr align="center"><td>주소</td><td><input type=text name="address" maxlength="50" style="width:80%;"></td></tr>
+			<tr align="center"><td>비고</td><td><input type=text name="special" maxlength="50" style="width:80%;"></td></tr>	
 	</table>
 	<table align="center" style="text-align:right;width:50%">
 			<tr>
 				<td>
 					<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='list'">
-					<input type=button class="btn btn-primary" value="프로필 저장" onClick="location.href='save'">
+					<input type=submit class="btn btn-primary" value="프로필 저장">
 				</td>
 			</tr>
 	</table>

@@ -15,7 +15,7 @@
 <div class="container">
 	<c:forEach items="${oneView}" var="oneViews">
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%">
-			<tr align="center"><td>이름</td><td>${oneViews.name}</td></tr>
+			<tr align="center" ><td style="width:30%">이름</td><td>${oneViews.name}</td></tr>
 			<tr align="center"><td>부서</td><td>${oneViews.depart}</td></tr>
 			<tr align="center"><td>직급</td><td>${oneViews.position}</td></tr>
 			<tr align="center"><td>주소</td><td>${oneViews.address}</td></tr>
@@ -29,10 +29,10 @@
 					<input type=button class="btn btn-primary" value="프로필 삭제" onClick="location.href='delete?id=${oneViews.id}'">
 				</td>
 			</tr>
-		</table>
+		</table> <br><br>
 		<table class="table table-bordered" align="center" style="width:50%">
 			<c:forEach items="${oneViews.phones}" var="phones">
-					<tr><td>${phones.num}</td><td style="text-align:right"><input type=button class="btn btn-primary" value="수정" onClick="location.href='save'"><input type=button class="btn btn-primary" value="삭제" onClick="location.href='delete'"></td></tr><br><br>
+					<tr><td>${phones.num}</td><td style="text-align:right"><input type=button class="btn btn-primary" value="수정" onClick="location.href='save'"><input type=button class="btn btn-primary" value="삭제" onClick="location.href='delete'"></td></tr>
 			</c:forEach>
 		</table>
 	</c:forEach>
