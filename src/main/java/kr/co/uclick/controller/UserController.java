@@ -98,18 +98,50 @@ public class UserController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping(value = "phoneDelete")
+	public String phoneDelete(Model model,@RequestParam HashMap<String,String> map) {
+		String psid = map.get("id");
+		long pid = Long.parseLong(psid);
+		phoneService.deleteNum(pid);
+	
+		return "redirect:list";
+	}
+	
 
 	@RequestMapping(value = "phoneSave")
 	public String phoneSave(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("userid");
-		long id = Long.parseLong(sid);
+		
+		String psid = map.get("phoneid");
+		
 		String num1 = map.get("addNum1");
 		String num2 = map.get("addNum2");
 		String num3 = map.get("addNum3");
 		String num = num1 + "-" + num2 + "-"+ num3;		
-		phoneService.AddNum(id, num);
+		
+		if(psid == null) {
+			long id = Long.parseLong(sid);
+			phoneService.AddNum(id, num);
+		}else {
+			long pid = Long.parseLong(psid);
+			phoneService.UpdateNum(pid, num);
+		}
 		
 		return "redirect:list";
 	}
+	
+	@RequestMapping(value = "PhoneEdit")
+	public String PhoneEdit(Model model,@RequestParam HashMap<String,String> map) {
+		String sid = map.get("id");
+		long id = Long.parseLong(sid);
+		List<User> users = userService.findAllById(id);
+		for (User u: users) {
+			Hibernate.initialize(u.getPhones());
+		}
+		model.addAttribute("phoneEdit",users);	
+	
+		return "PhoneEdit";
+	}
+	
 	
 }
