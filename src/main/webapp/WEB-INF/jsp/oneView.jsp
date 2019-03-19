@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,9 @@
 		<table align="center" style="text-align:right;width:50%">
 			<tr>
 				<td>
+				<c:if test="${fn:length(oneViews.phones)  >= 1}">
 					<input type=button class="btn btn-primary" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}'">
+				</c:if>
 				</td>
 			</tr>
 		</table>

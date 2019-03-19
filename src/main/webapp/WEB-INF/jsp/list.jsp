@@ -6,26 +6,27 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script language="javascript" type="text/javascript" >
+var i =0;
 function submitForm(){
 
 	
-		var addNum1 = document.forms[0].addNum1.value;
-		var addNum2 = document.forms[0].addNum2.value;
-		var addNum3 = document.forms[0].addNum3.value;
+		var addNum1 = document.forms[i].addNum1.value;
+		var addNum2 = document.forms[i].addNum2.value;
+		var addNum3 = document.forms[i].addNum3.value;
 
 		if(addNum1.match(/[^0-9]/gi)){
 			alert('숫자만 입력 가능합니다.');
-			document.forms[0].addNum1.focus();
+			document.forms[i].addNum1.focus();
 			return false;
 			}
 		if(addNum2.match(/[^0-9]/gi)){
 			alert('숫자만 입력 가능합니다.');
-			document.forms[0].addNum2.focus();
+			document.forms[i].addNum2.focus();
 			return false;
 			}
 		if(addNum3.match(/[^0-9]/gi)){
 			alert('숫자만 입력 가능합니다.');
-			document.forms[0].addNum3.focus();
+			document.forms[i].addNum3.focus();
 			return false;
 			}
 	return true;
@@ -53,7 +54,7 @@ function submitForm(){
 				</c:forEach>
 				</td>
 				<td>
-				
+					<c:if test="${fn:length(users.phones) < 3}">
 						<form name="addPhone" action="phoneSave" onsubmit="return submitForm();">
 							<input name="addNum1" maxlength="3" size="3" style="width:10%;">
 							<input name="addNum2" maxlength="4" size="4" style="width:15%;">
@@ -61,7 +62,8 @@ function submitForm(){
 							<input type="hidden" name="userid" value="${users.id}" >
 							<input type="submit" class="btn btn-primary" value="전화기 추가" >
 						</form>
-		
+					</c:if>
+					<c:if test="${fn:length(users.phones) == 3}">번호 등록은 3개 까지 가능합니다.</c:if>
 				</td>	
 			</tr>
 		</c:forEach>
