@@ -35,11 +35,17 @@
 					<tr>
 					<td>${phones.num}</td>
 						<td style="text-align:right">
-							<input type=button class="btn btn-primary" value="수정" onClick="location.href='PhoneEdit?id=${oneViews.id}'">
 							<input type=button class="btn btn-primary" value="삭제" onClick="location.href='phoneDelete?id=${phones.id}'">
 						</td>
 					</tr>
 			</c:forEach>
+		</table>
+		<table align="center" style="text-align:right;width:50%">
+			<tr>
+				<td>
+					<input type=button class="btn btn-primary" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}'">
+				</td>
+			</tr>
 		</table>
 	</c:forEach>
 </div>			

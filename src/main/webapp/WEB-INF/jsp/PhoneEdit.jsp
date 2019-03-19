@@ -22,13 +22,7 @@
 			<tr align="center"><td>주소</td><td>${phoneEdit.address}</td></tr>
 			<tr align="center"><td>비고</td><td>${phoneEdit.special}</td></tr>	
 		</table>
-		<table align="center" style="text-align:right;width:50%">
-			<tr>
-				<td>
-					<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='oneView?id=${phoneEdit.id}'">
-				</td>
-			</tr>
-		</table> <br><br>
+	 <br><br><br><br>
 		<table class="table table-bordered" align="center" style="width:50%">
 		<form action="phoneSave">
 			<c:forEach items="${phoneEdit.phones}" var="phones">
@@ -40,14 +34,21 @@
 					
 							<input type=hidden name="phoneid" value="${phones.id}">
 					</td>
-						<td style="text-align:right">
-							<input type=submit class="btn btn-primary" value="저장"">
-						</td>
 					</tr>
 			</c:forEach>
-		</form>	
+		
 		</table>
+			<table align="center" style="text-align:right;width:50%">
+			<tr>
+				<td>
+					<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='oneView?id=${phoneEdit.id}'">
+					<input type=submit class="btn btn-primary" value="저장"">
+				</td>
+			</tr>
+		</table>
+		</form>	
 	</c:forEach>
+	
 </div>			
 </body>
 </html>

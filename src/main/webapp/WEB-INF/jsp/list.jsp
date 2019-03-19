@@ -6,8 +6,30 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script language="javascript" type="text/javascript" >
+function submitForm(){
 
+	
+		var addNum1 = document.forms[0].addNum1.value;
+		var addNum2 = document.forms[0].addNum2.value;
+		var addNum3 = document.forms[0].addNum3.value;
 
+		if(addNum1.match(/[^0-9]/gi)){
+			alert('숫자만 입력 가능합니다.');
+			document.forms[0].addNum1.focus();
+			return false;
+			}
+		if(addNum2.match(/[^0-9]/gi)){
+			alert('숫자만 입력 가능합니다.');
+			document.forms[0].addNum2.focus();
+			return false;
+			}
+		if(addNum3.match(/[^0-9]/gi)){
+			alert('숫자만 입력 가능합니다.');
+			document.forms[0].addNum3.focus();
+			return false;
+			}
+	return true;
+}
 </script>
 </head>
 <body>
@@ -20,7 +42,7 @@
 				<td>직급</td>
 				<td colspan="2">전화 번호</td>
 			</tr>
-		<c:forEach items="${users}" var="users" >
+		<c:forEach items="${users}" var="users" varStatus="status">
 			<tr align="center">
 				<td><a href="oneView?id=${users.id}">${users.name}</a></td>
 				<td>${users.depart}</td>
@@ -31,13 +53,15 @@
 				</c:forEach>
 				</td>
 				<td>
-						<form name="addPhone" action="phoneSave">
-							<input name="addNum1"  size="3" style="width:10%;">
-							<input name="addNum2"  size="4" style="width:15%;">
-							<input name="addNum3"  size="4" style="width:15%;">
+				
+						<form name="addPhone" action="phoneSave" onsubmit="return submitForm();">
+							<input name="addNum1" maxlength="3" size="3" style="width:10%;">
+							<input name="addNum2" maxlength="4" size="4" style="width:15%;">
+							<input name="addNum3" maxlength="4" size="4" style="width:15%;">
 							<input type="hidden" name="userid" value="${users.id}" >
-							<input type="submit" class="btn btn-primary" value="전화기 추가">
+							<input type="submit" class="btn btn-primary" value="전화기 추가" >
 						</form>
+		
 				</td>	
 			</tr>
 		</c:forEach>
