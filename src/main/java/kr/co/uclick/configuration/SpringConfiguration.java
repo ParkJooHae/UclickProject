@@ -86,7 +86,7 @@ public class SpringConfiguration {
 //		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, Boolean.TRUE.toString());
 //		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString());
 //		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, HibernateRegionFactory.class.getName());
-//
+
 //		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid");
 //		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE");
 

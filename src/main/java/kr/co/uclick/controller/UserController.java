@@ -60,13 +60,13 @@ public class UserController {
 		}if(searchOption==2) {//번호로 찾기
 			List<User> users = new ArrayList<User>();
 			List<Phone> phones = phoneService.findByNumContaining(keyword);
-			for (Phone phone: phones) {
-				users.add(phone.getUser());
-			}
+				for (Phone phone: phones) {
+					users.add(phone.getUser());
+				}
 			users = new ArrayList<User>(new HashSet<User>(users));
-			for (User u: users) {
-				Hibernate.initialize(u.getPhones());
-			}
+				for (User u: users) {
+					Hibernate.initialize(u.getPhones());
+				}
 			model.addAttribute("users",users);
 		}
 		

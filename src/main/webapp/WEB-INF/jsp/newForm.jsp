@@ -7,12 +7,63 @@
 </head>
 <body>
 <div style=" height:100px">상부 영역</div>
+<script language="javascript" type="text/javascript" >
+function submitForm(){
+		var name = document.forms[0].name.value;
+		var depart = document.forms[0].depart.value;
+		var position = document.forms[0].position.value;
+		var address = document.forms[0].address.value;
+		var special = document.forms[0].special.value;
 
+		if(name == null || name == ""){
+				alert('이름을 입력하세요.');
+				return false;
+			}
+		if(depart == null || depart == ""){
+			alert('부서를 입력하세요.');
+			return false;
+		}
+		if(position == null || position == ""){
+			alert('직급을 입력하세요.');
+			return false;
+		}
+		if(address == null || address == ""){
+			alert('주소를 입력하세요.');
+			return false;
+		}
+		if(name.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
+			alert('특수문자 사용이 불가능합니다.');
+			document.forms[0].name.focus();
+			return false;
+		}
+		if(depart.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
+			alert('특수문자 사용이 불가능합니다.');
+			document.forms[0].depart.focus();
+			return false;
+		}
+		if(position.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
+			alert('특수문자 사용이 불가능합니다.');
+			document.forms[0].position.focus();
+			return false;
+		}
+		if(address.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
+			alert('특수문자 사용이 불가능합니다.');
+			document.forms[0].address.focus();
+			return false;
+		}
+		if(special.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
+			alert('특수문자 사용이 불가능합니다.');
+			document.forms[0].special.focus();
+			return false;
+		}
+		
+}
+</script>
 <div class="text-center" style="height:200px">
 프로필 영역
 </div>
 <div class="container">
-<form action="save">
+<form action="save" onsubmit="return submitForm();">
 	<table class="table table-bordered" align="center" style="text-align:center;width:50%">
 	
 			<tr align="center"><td  style="width:30%">이름</td><td ><input type=text name="name" maxlength="50" style="width:80%;"> </td></tr>

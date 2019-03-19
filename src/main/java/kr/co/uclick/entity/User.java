@@ -3,7 +3,7 @@ package kr.co.uclick.entity;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
+import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.TableGenerator;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
 
 @Entity
+//@Cacheable
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//L2 Cache적용
 @TableGenerator(name = "usernum",allocationSize = 1)
-//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)// L2 Cache
 public class User {
 	
 	@Id
@@ -59,6 +64,7 @@ public class User {
 	}
 
 	@Column
+	//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//Phone Collection에 대하여 Cache 적용
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private Collection<Phone> phones;//전화부
 	

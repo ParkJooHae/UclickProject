@@ -70,10 +70,6 @@ public class UserServiceImpl implements UserService {
 		userRepository.deleteById(id);
 	}
 
-	@Override
-	public long countAll() {
-		return userRepository.count();
-	}
 
 	
 

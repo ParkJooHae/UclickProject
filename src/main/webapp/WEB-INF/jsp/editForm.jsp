@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 </head>
 <body>
 <div style=" height:100px">상부 영역</div>
@@ -13,7 +14,7 @@
 </div>
 
 <div class="container">
-	<form action="save">
+	<form name="addPhone" action="save">
 	<c:forEach items="${editView}" var="editView">
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%">
 			<tr align="center"><td  style="width:30%">이름</td><td><input type=text name="name" maxlength="50" style="width:80%;" value="${editView.name}"><input type=hidden name="id" value="${editView.id}"></td></tr>

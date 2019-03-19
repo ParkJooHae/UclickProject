@@ -1,5 +1,6 @@
 package kr.co.uclick.entity;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
 @Entity
+//@Cacheable
+//@Cache(usage = CacheConcurrencyStrategy.NONE)// L2 Cache 적용
 @TableGenerator(name = "phonenum",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
 public class Phone {
 	
