@@ -42,10 +42,10 @@ function submitForm(index){
 </script>
 </head>
 <body>
-<div style=" height:200px">상부 영역</div>
-<div class="container">
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div class="container" >
 	<table class="table table-bordered" align="center" style="text-align:center; ">
-			<tr align="center">
+			<tr align="center" bgcolor="#A9D0F5">
 				<td>이름</td>
 				<td>부서</td>
 				<td>직급</td>
@@ -53,7 +53,7 @@ function submitForm(index){
 			</tr>
 		<c:forEach items="${users}" var="users" varStatus="status">
 			<tr align="center">
-				<td valign=middle><a href="oneView?id=${users.id}">${users.name}</a></td>
+				<td><a href="oneView?id=${users.id}">${users.name}</a></td>
 				<td>${users.depart}</td>
 				<td>${users.position}</td>
 				<td>

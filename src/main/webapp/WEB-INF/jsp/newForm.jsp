@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-<div style=" height:100px">상부 영역</div>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
 <script language="javascript" type="text/javascript" >
 function submitForm(){
 		var name = document.forms[0].name.value;
