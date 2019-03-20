@@ -52,15 +52,15 @@ public class UserServiceTest {
 	@Test
 	@Transactional
 	public void test3() {// 전체 불러오기 TEST
-		List<User> list = userService.findAllByOrderByIdDesc();
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).getName());
-			List<Phone> phones = list.get(i).getPhones().stream().collect(Collectors.toList());
-			for (int j = 0; j < phones.size(); j++) {
-				System.out.println(phones.get(j).getNum());
-			}
-			
-		}
+		//List<User> list = userService.findAllByOrderByIdDesc();
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i).getName());
+//			List<Phone> phones = list.get(i).getPhones().stream().collect(Collectors.toList());
+//			for (int j = 0; j < phones.size(); j++) {
+//				System.out.println(phones.get(j).getNum());
+//			}
+//			
+//		}
 	}
 	
 }

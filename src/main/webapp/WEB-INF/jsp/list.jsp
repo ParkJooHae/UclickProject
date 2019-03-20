@@ -42,7 +42,7 @@ function submitForm(index){
 </script>
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;"><a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a></div>
 <div class="container" >
 	<table class="table table-bordered" align="center" style="text-align:center; ">
 			<tr align="center" bgcolor="#A9D0F5">
@@ -85,6 +85,38 @@ function submitForm(index){
 			</tr>
 		</c:forEach>
 	</table>
+</div>
+<br>
+<div class="text-center">
+	<ul class="pagination">
+	
+	<c:choose>
+		<c:when test="${searchOption==0}">
+			<li><a href="list?page=1">&#9664;&#9664;</a></li>
+			<li><a href="list?page=${prev}">&#9664;</a></li>
+			<c:forEach var="i" begin="${start}" end="${end}" step="1">
+				<li><a href="list?page=${i}">
+					<c:choose>
+						<c:when test="${viewpage == i}">
+							<b>[${i}]</b>
+						</c:when>
+						<c:otherwise>
+							${i}
+						</c:otherwise>
+					</c:choose>
+				</a></li>
+			</c:forEach>
+			<li><a href="list?page=${next}">&#9654;</a></li>
+			<li><a href="list?page=${lastpage}">&#9654;&#9654;</a></li>
+		</c:when>
+		<c:when test="${searchOption==1}">
+		</c:when>
+		<c:when test="${searchOption==2}">
+		</c:when>
+
+	</c:choose>
+	
+	</ul>
 </div>
 <br>
 <div class="container">

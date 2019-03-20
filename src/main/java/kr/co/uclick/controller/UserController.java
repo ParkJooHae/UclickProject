@@ -34,8 +34,13 @@ public class UserController {
 	
 	@RequestMapping(value = "list")
 	public String list(Model model, @RequestParam HashMap<String,String> map) {
+		String stringpage = map.get("page"); //현재 페이지
+		int page = userService.pagenow(stringpage).getPagenow(); // 현재 페이지
+		int cnt = 10;// 보여줄 게시물 수
+		int pagenum = 10;// 보여줄 번호 수
 		
-		//검색
+		
+		///////////////////검색
 		String keyword = map.get("keyword");//검색 키워드
 		if(keyword==null) {//검색 키워드 디폴트
 			keyword="";
@@ -46,13 +51,13 @@ public class UserController {
 		}
 		int searchOption = Integer.parseInt(ssearchOption);
 		if(searchOption==0) {
-			List<User> users = userService.findAllByOrderByIdDesc();
+			List<User> users = userService.findAllByOrderByIdDesc(page-1, cnt);
 				for (User u: users) {
 					Hibernate.initialize(u.getPhones());
 				}
 			model.addAttribute("users",users);
 		}if(searchOption==1) {//이름으로 찾기
-			List<User> users = userService.findUserByNameContaining(keyword);
+			List<User> users = userService.findUserByNameContaining(keyword,page-1, cnt);
 			for (User u: users) {
 				Hibernate.initialize(u.getPhones());
 			}
@@ -69,7 +74,23 @@ public class UserController {
 				}
 			model.addAttribute("users",users);
 		}
+		/////////////페이지네이션
+		int lastpage = userService.findPage(page, cnt, searchOption, keyword).getLastPage();//리스트 총 갯수
+		Long totalpage = userService.findPage(page, cnt, searchOption, keyword).getTotalpage();//전체 데이터 수
+		int prevpage = userService.makePage(page, pagenum, lastpage).getPrevpage();
+		int nextpage = userService.makePage(page, pagenum, lastpage).getNextpage();
+		int blockstart = userService.makePage(page, pagenum, lastpage).getBlockstart();
+		int blockend = userService.makePage(page, pagenum, lastpage).getBlockend();
 		
+		model.addAttribute("lastpage",lastpage);// 마지막 페이지 번호
+		model.addAttribute("totalpage",totalpage);// 전체 게시글 수
+		model.addAttribute("viewpage", page);//현재 페이지
+		model.addAttribute("start",blockstart);//블록 시작
+		model.addAttribute("end",blockend);//블록 끝
+		model.addAttribute("prev", prevpage);//이전 번호대
+		model.addAttribute("next", nextpage);//다음 번호대
+		model.addAttribute("searchOption", searchOption);//검색 옵션
+		model.addAttribute("keyword", keyword);//검색 키워드
 		
 		return "list";
 	}
