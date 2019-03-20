@@ -173,27 +173,38 @@ public class UserController {
 		String num3 = map.get("addNum3");
 		String num = num1 + "-" + num2 + "-"+ num3;		
 		
-		if(psid == null) {
-			long id = Long.parseLong(sid);
-			phoneService.AddNum(id, num);
+		if(phoneService.existsByNum(num) == true) {
+			return "redirect:list";
 		}else {
-			long pid = Long.parseLong(psid);
-			phoneService.UpdateNum(pid, num);
+			if(psid == null) {
+				long id = Long.parseLong(sid);
+				phoneService.AddNum(id, num);
+				return "redirect:list";		
+			}else {
+				long pid = Long.parseLong(psid);
+				phoneService.UpdateNum(pid, num);
+				return "redirect:oneView?id="+sid;		
+			}
+	
 		}
+			
 		
-		return "redirect:list";
+		
+			
 	}
 	
 	@RequestMapping(value = "PhoneEdit")
 	public String PhoneEdit(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("id");
+		String psid = map.get("pid");
 		long id = Long.parseLong(sid);
+		long pid = Long.parseLong(psid);
 		List<User> users = userService.findAllById(id);
 		for (User u: users) {
 			Hibernate.initialize(u.getPhones());
 		}
 		model.addAttribute("phoneEdit",users);	
-	
+		model.addAttribute("phoneid",pid);
 		return "PhoneEdit";
 	}
 	

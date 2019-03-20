@@ -37,6 +37,7 @@
 					<td>${phones.num}</td>
 						<td style="text-align:right">
 							<input type=button class="btn btn-primary" value="삭제" onClick="location.href='phoneDelete?id=${phones.id}'">
+							<input type=button class="btn btn-primary" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}&pid=${phones.id}'">
 						</td>
 					</tr>
 			</c:forEach>
@@ -44,13 +45,16 @@
 		<table align="center" style="text-align:right;width:50%">
 			<tr>
 				<td>
-				<c:if test="${fn:length(oneViews.phones)  >= 1}">
-					<input type=button class="btn btn-primary" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}'">
-				</c:if>
+				
 				</td>
 			</tr>
 		</table>
 	</c:forEach>
-</div>			
+</div>	
+<br>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+
+</div >		
 </body>
+
 </html>

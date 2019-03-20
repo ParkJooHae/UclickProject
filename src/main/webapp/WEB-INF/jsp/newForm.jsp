@@ -82,5 +82,9 @@ function submitForm(){
 	</table>
 </form>	
 </div>
+<br>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+
+</div >
 </body>
 </html>

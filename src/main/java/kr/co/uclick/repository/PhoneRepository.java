@@ -9,5 +9,8 @@ import kr.co.uclick.entity.User;
 
 public interface PhoneRepository extends JpaRepository<Phone, Long> {
 		public List<Phone> findByNumContaining(String number);//번호 검색
+		public List<Phone> findByNum(String number);
 		List<Phone> findByUserId(Long id);
+		public boolean existsByNum(String num);
+		
 }

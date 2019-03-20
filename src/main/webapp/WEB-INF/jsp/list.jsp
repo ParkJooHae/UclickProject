@@ -36,7 +36,7 @@ function submitForm(index){
 		if(addNum3.match(/[^0-9]/gi)){
 			alert('숫자만 입력 가능합니다.');
 			return false;
-			}
+		}
 	
 }
 </script>
@@ -44,6 +44,8 @@ function submitForm(index){
 <body>
 <div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;"><a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a></div>
 <div class="container" >
+중복 전화기 입력 불가<br>
+숫자만 입력 가능
 	<table class="table table-bordered" align="center" style="text-align:center; ">
 			<tr align="center" bgcolor="#A9D0F5">
 				<td>이름</td>
@@ -86,7 +88,6 @@ function submitForm(index){
 		</c:forEach>
 	</table>
 </div>
-<br>
 <div class="text-center">
 	<ul class="pagination">
 	
@@ -138,5 +139,9 @@ function submitForm(index){
 		</tr>
 	</table>
 </div>
+<br>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+
+</div >
 </body>
 </html>

@@ -13,14 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.TableGenerator;
 
-import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 
 @Entity
 //@Cacheable
-//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//L2 Cache적용
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//L2 Cache적용
 @TableGenerator(name = "usernum",allocationSize = 1)
 public class User {
 	
@@ -63,8 +62,7 @@ public class User {
 		this.special = special;
 	}
 
-	@Column
-	//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//Phone Collection에 대하여 Cache 적용
+	@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//Phone Collection에 대하여 Cache 적용
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private Collection<Phone> phones;//전화부
 	

@@ -51,7 +51,19 @@ public class PhoneServiceImpl implements PhoneService {
 	public List<Phone> findByUserId(Long id) {
 		return phoneRepository.findByUserId(id);
 	}
-	
+
+	@Override
+	public List<Phone> findByNum(String number) {
+		
+		return phoneRepository.findByNum(number);
+	}
+
+	@Override
+	public boolean existsByNum(String num) {
+		return phoneRepository.existsByNum(num);
+	}
+
+
 	
 
 }

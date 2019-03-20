@@ -43,7 +43,7 @@ function submitForm(){
 </script>
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
 
 <div class="text-center" style="height:200px">
 프로필 영역
@@ -59,16 +59,26 @@ function submitForm(){
 			<tr align="center"><td>비고</td><td>${phoneEdit.special}</td></tr>	
 		</table>
 	 <br><br><br><br>
-	 <form name="addPhone" action="phoneSave"">
+	 <form name="addPhone" action="phoneSave">
 		<table class="table table-bordered" align="center" style="width:50%">
-			<c:forEach items="${phoneEdit.phones}" var="phones" varStatus="status">
+		<c:forEach items="${phoneEdit.phones}" var="phones" varStatus="status">
 					<tr>
-						<td>
-							<input name="addNum1"  size="3" style="width:10%;" value="${fn:split(phones.num,'-')[0]}">
-							<input name="addNum2"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[1]}">
-							<input name="addNum3"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[2]}">
-							<input type=hidden name="phoneid" value="${phones.id}">
-						</td>
+						<c:choose>
+						<c:when test="${phoneid == phones.id}">
+							<td>
+								<input name="addNum1"  size="3" style="width:10%;" value="${fn:split(phones.num,'-')[0]}">
+								<input name="addNum2"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[1]}">
+								<input name="addNum3"  size="4" style="width:15%;" value="${fn:split(phones.num,'-')[2]}">
+								<input type=hidden name="phoneid" value="${phones.id}">
+								<input type=hidden name="userid" value="${phoneEdit.id}">
+							</td>
+							<td style="text-align:right"><input type=submit class="btn btn-primary" value="저장"></td>
+						</c:when>
+						<c:otherwise>
+							<td>${phones.num}</td>
+							<td><input type=hidden name="phoneid" value="${phones.id}"></td>
+						</c:otherwise>
+						</c:choose>
 					</tr>
 			</c:forEach>
 			</table>
@@ -76,13 +86,16 @@ function submitForm(){
 				<tr>
 					<td>
 						<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='oneView?id=${phoneEdit.id}'">
-						<input type=submit class="btn btn-primary" value="저장">
 					</td>
 				</tr>
 			</table>
-		</form>	
-	</c:forEach>
+		</form>		
+		</c:forEach>
 	
-</div>			
+</div>	
+<br>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+
+</div>		
 </body>
 </html>
