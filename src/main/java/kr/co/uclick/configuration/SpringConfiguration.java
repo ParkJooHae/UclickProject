@@ -29,7 +29,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-//@ImportResource(locations = "classpath:applicationContext-ignite.xml")
+@ImportResource(locations = "classpath:applicationContext-ignite.xml")
 @ComponentScans({ @ComponentScan({ "kr.co.uclick.service" }) })
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @EnableSpringConfigured
@@ -40,7 +40,7 @@ public class SpringConfiguration {
 	@Primary
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://192.168.23.27:3306/UclickDB");
 		dataSource.setUsername("root");
 		dataSource.setPassword("pjh8134");
@@ -48,7 +48,7 @@ public class SpringConfiguration {
 	}
 
 	@Bean
-//	@DependsOn("igniteSystem")
+	@DependsOn("igniteSystem")
 	@Primary
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -84,13 +84,14 @@ public class SpringConfiguration {
 
 		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, Boolean.TRUE.toString());
 		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, Boolean.TRUE.toString());
-//		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString());
-//		
+		
+		
+		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString());
 		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, HibernateRegionFactory.class.getName());
 
 		
-//		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid");
-//		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE");
+		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid");
+		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE");
 
 		properties.setProperty(AvailableSettings.PHYSICAL_NAMING_STRATEGY,
 				CustomPhysicalNamingStrategyStandardImpl.class.getName());
