@@ -42,8 +42,10 @@ function submitForm(index){
 </script>
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
-		<div><a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a></div>	
+<div style="height:200px;background-color:#819FF7;color:white;vertical-align:middle;text-align:center;margin:auto;">
+	<div style="padding:50px;color:white;vertical-align:middle;text-align:center;margin:auto;display:inline-block;">
+		<a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a>	
+	</div>
 </div>
 <div class="container" >
 중복 전화기 입력 불가<br>
@@ -57,10 +59,10 @@ function submitForm(index){
 			</tr>
 		<c:forEach items="${users}" var="users" varStatus="status">
 			<tr align="center">
-				<td><a href="oneView?id=${users.id}">${users.name}</a></td>
+				<td height="50px"><a href="oneView?id=${users.id}">${users.name}</a></td>
 				<td>${users.depart}</td>
 				<td>${users.position}</td>
-				<td>
+				<td width="30%">
 				<c:forEach items="${users.phones}" var="phones">
 					${phones.num}<br>
 				</c:forEach>
@@ -72,7 +74,7 @@ function submitForm(index){
 							<input name="addNum2" maxlength="4" size="4" style="width:15%;" >
 							<input name="addNum3" maxlength="4" size="4" style="width:15%;" >
 							<input type="hidden" name="userid" value="${users.id}" >
-							<input type="submit" class="btn btn-primary" value="전화기 추가" >
+							<input type="submit" class="btn btn-primary  btn-sm" value="전화기 추가" >
 						</form>
 					</c:if>
 					
@@ -83,7 +85,7 @@ function submitForm(index){
 							<input type="hidden" name="addNum2">
 							<input type="hidden" name="addNum3">
 							<input type="hidden" name="userid">
-							<input type="hidden" class="btn btn-primary" value="전화기 추가" >
+							<input type="hidden" class="btn btn-primary  btn-sm" value="전화기 추가" >
 						</form></c:if>
 				</td>	
 			</tr>
@@ -128,15 +130,15 @@ function submitForm(index){
 			<td width="90%">
 				<form name="search" action="list">
 					<input name="keyword">
-						<select name="searchOption">
-							<option value="1">이름</option>
+						<select name="searchOption" >
+							<option value="1" >이름</option>
 							<option value="2">전화기</option>
 						</select>
-					<input type="submit" class="btn btn-primary" value="검색">
+					<input type="submit" class="btn btn-primary  btn-sm" value="검색">
 				</form>
 			</td>
 			<td>
-				<input type=button class="btn btn-primary" value="사용자 추가" onClick="location.href='newForm'">	
+				<input type=button class="btn btn-primary  btn-sm" value="사용자 추가" onClick="location.href='newForm'">	
 			</td>
 		</tr>
 	</table>

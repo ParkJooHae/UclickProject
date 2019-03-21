@@ -6,7 +6,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div style="height:200px;background-color:#819FF7;color:white;vertical-align:middle;text-align:center;margin:auto;">
+	<div style="padding:50px;color:white;vertical-align:middle;text-align:center;margin:auto;display:inline-block;">
+		<a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a>	
+	</div>
+</div>
 <script language="javascript" type="text/javascript" >
 function submitForm(){
 		var name = document.forms[0].name.value;
@@ -75,8 +79,8 @@ function submitForm(){
 	<table align="center" style="text-align:right;width:50%">
 			<tr>
 				<td>
-					<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='list'">
-					<input type=submit class="btn btn-primary" value="프로필 저장">
+					<input type=button class="btn btn-primary  btn-sm " value="뒤로가기" onClick="location.href='list'">
+					<input type=submit class="btn btn-primary  btn-sm" value="프로필 저장">
 				</td>
 			</tr>
 	</table>

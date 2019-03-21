@@ -43,7 +43,11 @@ function submitForm(){
 </script>
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div style="height:200px;background-color:#819FF7;color:white;vertical-align:middle;text-align:center;margin:auto;">
+	<div style="padding:50px;color:white;vertical-align:middle;text-align:center;margin:auto;display:inline-block;">
+		<a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a>	
+	</div>
+</div>
 
 <div class="text-center" style="height:200px">
 프로필 영역
@@ -72,7 +76,7 @@ function submitForm(){
 								<input type=hidden name="phoneid" value="${phones.id}">
 								<input type=hidden name="userid" value="${phoneEdit.id}">
 							</td>
-							<td style="text-align:right"><input type=submit class="btn btn-primary" value="저장"></td>
+							<td style="text-align:right"><input type=submit class="btn btn-primary btn-sm" value="저장"></td>
 						</c:when>
 						<c:otherwise>
 							<td>${phones.num}</td>
@@ -85,7 +89,7 @@ function submitForm(){
 				<table align="center" style="text-align:right;width:50%">
 				<tr>
 					<td>
-						<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='oneView?id=${phoneEdit.id}'">
+						<input type=button class="btn btn-primary  btn-sm" value="뒤로가기" onClick="location.href='oneView?id=${phoneEdit.id}'">
 					</td>
 				</tr>
 			</table>

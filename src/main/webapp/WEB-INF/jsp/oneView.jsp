@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></div>
+<div style="height:200px;background-color:#819FF7;color:white;vertical-align:middle;text-align:center;margin:auto;">
+	<div style="padding:50px;color:white;vertical-align:middle;text-align:center;margin:auto;display:inline-block;">
+		<a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a>	
+	</div>
+</div>
 
 <div class="text-center" style="height:200px">
 프로필 영역
@@ -25,9 +29,9 @@
 		<table align="center" style="text-align:right;width:50%">
 			<tr>
 				<td>
-					<input type=button class="btn btn-primary" value="뒤로가기" onClick="location.href='list'">
-					<input type=button class="btn btn-primary" value="프로필 수정" onClick="location.href='editForm?id=${oneViews.id}'">
-					<input type=button class="btn btn-primary" value="프로필 삭제" onClick="location.href='delete?id=${oneViews.id}'">
+					<input type=button class="btn btn-primary  btn-sm" value="뒤로가기" onClick="location.href='list'">
+					<input type=button class="btn btn-primary  btn-sm" value="프로필 수정" onClick="location.href='editForm?id=${oneViews.id}'">
+					<input type=button class="btn btn-primary  btn-sm" value="프로필 삭제" onClick="location.href='delete?id=${oneViews.id}'">
 				</td>
 			</tr>
 		</table> <br><br>
@@ -36,8 +40,8 @@
 					<tr>
 					<td>${phones.num}</td>
 						<td style="text-align:right">
-							<input type=button class="btn btn-primary" value="삭제" onClick="location.href='phoneDelete?id=${phones.id}'">
-							<input type=button class="btn btn-primary" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}&pid=${phones.id}'">
+							<input type=button class="btn btn-primary btn-sm" value="삭제" onClick="location.href='phoneDelete?id=${phones.id}'">
+							<input type=button class="btn btn-primary btn-sm" value="전화기 수정" onClick="location.href='PhoneEdit?id=${oneViews.id}&pid=${phones.id}'">
 						</td>
 					</tr>
 			</c:forEach>
