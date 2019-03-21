@@ -14,8 +14,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 
 @Entity
-//@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)// L2 Cache 적용
+@Cacheable
+//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)// L2 Cache 적용
 @TableGenerator(name = "phonenum",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
 public class Phone {
 	

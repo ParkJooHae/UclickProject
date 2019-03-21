@@ -42,15 +42,17 @@ function submitForm(index){
 </script>
 </head>
 <body>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;"><a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a></div>
+<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+		<div><a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a></div>	
+</div>
 <div class="container" >
 중복 전화기 입력 불가<br>
 숫자만 입력 가능
 	<table class="table table-bordered" align="center" style="text-align:center; ">
 			<tr align="center" bgcolor="#A9D0F5">
-				<td>이름</td>
-				<td>부서</td>
-				<td>직급</td>
+				<td width="10%">이름</td>
+				<td width="10%">부서</td>
+				<td width="10%">직급</td>
 				<td colspan="2">전화 번호</td>
 			</tr>
 		<c:forEach items="${users}" var="users" varStatus="status">
@@ -140,7 +142,7 @@ function submitForm(index){
 	</table>
 </div>
 <br>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+<div style="height:200px;background-color:#819FF7;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
 
 </div >
 </body>

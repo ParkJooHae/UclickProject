@@ -52,7 +52,7 @@
 	</c:forEach>
 </div>	
 <br>
-<div style="height:200px;background-color:#819FF7;color:white;margin:10px;vertical-align:middle;">
+<div style="height:200px;background-color:#819FF7;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
 
 </div >		
 </body>
