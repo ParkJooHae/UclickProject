@@ -13,11 +13,21 @@
 	</div>
 </div>
 
-<div class="text-center" style="height:200px">
-프로필 영역
-</div>
 
+<br>
+	<br>
+	<br>
+	<br>
 <div class="container">
+	<div class="text-center" style="height:200px">
+	<br>
+	<br>
+
+	프로필 영역
+	<br>
+	<br>
+	
+	</div>
 	<form name="addPhone" action="save">
 	<c:forEach items="${editView}" var="editView">
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%">
@@ -40,8 +50,8 @@
 	</form>
 </div>	
 <br>
-<div style="height:200px;background-color:#819FF7;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
+<div style="height:200px;background-color:#424242;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
 
-</div >		
+</div >	
 </body>
 </html>

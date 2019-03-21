@@ -130,7 +130,7 @@ function submitForm(index){
 			<td width="90%">
 				<form name="search" action="list">
 					<input name="keyword">
-						<select name="searchOption" >
+						<select name="searchOption" class="selectpicker" >
 							<option value="1" >이름</option>
 							<option value="2">전화기</option>
 						</select>
@@ -144,7 +144,7 @@ function submitForm(index){
 	</table>
 </div>
 <br>
-<div style="height:200px;background-color:#819FF7;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
+<div style="height:200px;background-color:#424242;color:white;left:0px; bottom:0px;width:100%;vertical-align:middle;">
 
 </div >
 </body>
