@@ -36,7 +36,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="list">HOME<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
@@ -103,7 +103,7 @@
 </main>
 <footer class="footer mt-auto py-3">
   <div class="container">
-    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com</span>
+    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com<br>© 2017-2019 Company, Inc.</span>
   </div>
 </footer>
 </body>

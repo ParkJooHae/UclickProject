@@ -134,7 +134,7 @@ function submitForm(){
 </main>
 <footer class="footer mt-auto py-3">
   <div class="container">
-    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com</span>
+    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com<br>© 2017-2019 Company, Inc.</span>
   </div>
 </footer>
 </body>

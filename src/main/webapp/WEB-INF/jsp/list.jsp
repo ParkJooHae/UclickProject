@@ -93,10 +93,20 @@ function submitForm(index){
 <main role="main" class="flex-shrink-0">
 
 	<div class="container" >
-		<div>
-		중복 전화기 입력 불가<br>
-		숫자만 입력 가능
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="/resources/0.jpg" class="d-block w-100" alt="first">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="/resources/1.jpg" class="d-block w-100" alt="second">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="/resources/3.jpg" class="d-block w-100" alt="third">
+			    </div>
+			  </div>
 		</div>
+		
 		<table class="table table-bordered" align="center" style="text-align:center;">
 				<thead>
 				<tr align="center">
@@ -153,7 +163,7 @@ function submitForm(index){
 					<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${i}">
 						<c:choose>
 							<c:when test="${viewpage == i}">
-								<b>[${i}]</b>
+								<b>${i}</b>
 							</c:when>
 							<c:otherwise>
 								${i}
@@ -174,7 +184,7 @@ function submitForm(index){
 </main>
 <footer class="footer mt-auto py-3">
   <div class="container">
-    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com</span>
+    <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com<br>© 2017-2019 Company, Inc.</span>
   </div>
 </footer>
 
