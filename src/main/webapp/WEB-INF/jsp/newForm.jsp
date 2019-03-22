@@ -105,7 +105,7 @@ function submitForm(){
       </form>
     </div>
   </nav>
-</header>1
+</header>
 <main role="main" class="flex-shrink-0">
 	<div class="container">
 		<div class="text-center" style="height:200px">
@@ -127,7 +127,7 @@ function submitForm(){
 		</div>
 		<div class="container" style="text-align:center;">
 				<input type=button class="btn btn-outline-secondary " value="뒤로가기" onClick="location.href='list'">
-				<input type=submit class="btn btn-outline-secondary" value="프로필 저장">
+				<input type=submit class="btn btn-outline-success" value="프로필 저장">
 		</div>
 	</form>	
 	</div>

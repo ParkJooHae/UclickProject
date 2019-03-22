@@ -103,7 +103,8 @@ function submitForm(index){
 					<td width="15%">이름</td>
 					<td width="10%">부서</td>
 					<td width="10%">직급</td>
-					<td colspan="2">전화 번호</td>
+					<td width="15%">전화 번호</td>
+					<td >번호 추가</td>
 				</tr>
 				</thead>
 				<tbody>
@@ -118,14 +119,13 @@ function submitForm(index){
 					</c:forEach>
 					</td>
 					<td width="45%">
-					
 						<c:if test="${fn:length(users.phones) < 3}">
-							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">
+							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.count});">
 								<input class="form-control" name="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
 								<input class="form-control" name="addNum2" maxlength="4" size="4" style="width:20%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
 								<input class="form-control" name="addNum3" maxlength="4" size="4" style="width:20%;" >
-								<input type="hidden" name="userid" value="${users.id}" >&nbsp;
-								<input type="submit" class="btn btn-outline-secondary" value="전화기 추가" >
+								<input type="hidden" name="userid" value="${users.id}" >&nbsp;&nbsp;
+								<input type="submit" class="btn btn-outline-success" value="전화기 추가" >
 							</form>
 						</c:if>
 						<c:if test="${fn:length(users.phones) == 3}">
