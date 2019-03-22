@@ -6,25 +6,26 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-
-<style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-  
-</style>
 <link href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+<style>
+	footer {
+	    position:absolute;
+	    bottom:0;
+	    width:100%;
+		text-align:center;
+	}
+	.btn-space {
+    	margin-right:5px;
+	}
+	table{
+	  	vertical-align:middle;
+	  	table-layout:fixed;
+	}
+	div {
+		overflow-x:auto;
+	}
+	
+</style>
 <script language="javascript" type="text/javascript" >
 
 function submitForm(index){
@@ -72,10 +73,10 @@ function submitForm(index){
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="list">홈<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="list">HOME<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="newForm">사용자 추가</a>
+          <a class="nav-link" href="newForm">ADD USER</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0" action="list">
@@ -96,16 +97,19 @@ function submitForm(index){
 		중복 전화기 입력 불가<br>
 		숫자만 입력 가능
 		</div>
-		<table class="table table-hover" align="center" style="text-align:center; ">
+		<table class="table table-hover" align="center" style="text-align:center;">
+				<thead>
 				<tr align="center">
 					<td width="10%">이름</td>
 					<td width="10%">부서</td>
 					<td width="10%">직급</td>
 					<td colspan="2">전화 번호</td>
 				</tr>
+				</thead>
+				<tbody>
 			<c:forEach items="${users}" var="users" varStatus="status">
 				<tr align="center">
-					<td height="50px"><a href="oneView?id=${users.id}">${users.name}</a></td>
+					<td><a style="color:black;text-decoration:none;" href="oneView?id=${users.id}"><b>${users.name}</b></a></td>
 					<td>${users.depart}</td>
 					<td>${users.position}</td>
 					<td width="30%">
@@ -115,12 +119,12 @@ function submitForm(index){
 					</td>
 					<td>
 						<c:if test="${fn:length(users.phones) < 3}">
-							<form name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">
-								<input name="addNum1" maxlength="3" size="3" style="width:10%;" >
-								<input name="addNum2" maxlength="4" size="4" style="width:15%;" >
-								<input name="addNum3" maxlength="4" size="4" style="width:15%;" >
-								<input type="hidden" name="userid" value="${users.id}" >
-								<input type="submit" class="btn btn-primary  btn-sm" value="전화기 추가" >
+							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">
+								<input class="form-control" name="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
+								<input class="form-control" name="addNum2" maxlength="4" size="4" style="width:20%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
+								<input class="form-control" name="addNum3" maxlength="4" size="4" style="width:20%;" >
+								<input type="hidden" name="userid" value="${users.id}" >&nbsp;
+								<input type="submit" class="btn btn-outline-secondary" value="전화기 추가" >
 							</form>
 						</c:if>
 						
@@ -131,22 +135,22 @@ function submitForm(index){
 								<input type="hidden" name="addNum2">
 								<input type="hidden" name="addNum3">
 								<input type="hidden" name="userid">
-								<input type="hidden" class="btn btn-primary  btn-sm" value="전화기 추가" >
+								<input type="hidden" value="전화기 추가" >
 							</form></c:if>
 					</td>	
 				</tr>
 			</c:forEach>
+			</tbody>
 		</table>
 	</div>
 	<div class="container">
-	<nav>
-		<ul class="pagination pagination-sm">
+		<ul class="pagination pagination-sm" style="text-align:center;width:20%;margin-left:auto;margin-right:auto;">
 		<c:choose>
 			<c:when test="${searchOption==0}">
-				<li class="page-item"><a class="page-link" href="list?page=1">&#9664;&#9664;</a></li>
-				<li class="page-item"><a class="page-link" href="list?page=${prev}">&#9664;</a></li>
+				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=1">&#9664;&#9664;</a></li>
+				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${prev}">&#9664;</a></li>
 				<c:forEach var="i" begin="${start}" end="${end}" step="1">
-					<li class="page-item"><a class="page-link" href="list?page=${i}">
+					<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${i}">
 						<c:choose>
 							<c:when test="${viewpage == i}">
 								<b>[${i}]</b>
@@ -157,29 +161,22 @@ function submitForm(index){
 						</c:choose>
 					</a></li>
 				</c:forEach>
-				<li class="page-item"><a class="page-link" href="list?page=${next}">&#9654;</a></li>
-				<li class="page-item"><a class="page-link" href="list?page=${lastpage}">&#9654;&#9654;</a></li>
+				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${next}">&#9654;</a></li>
+				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${lastpage}">&#9654;&#9654;</a></li>
 			</c:when>
 			<c:when test="${searchOption==1}">
 			</c:when>
 			<c:when test="${searchOption==2}">
 			</c:when>
-	
 		</c:choose>
-		
 		</ul>
-	</nav>
 	</div>
-
 </main>
 <footer class="footer mt-auto py-3">
   <div class="container">
     <span class="text-muted">담당자 연락처 : xxxx-xxxx<br>e-mail : xxxx123@gmail.com</span>
   </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="http://bootstrap4.kr/assets/js/vendor/popper.min.js"></script>
-<script src="http://bootstrap4.kr/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

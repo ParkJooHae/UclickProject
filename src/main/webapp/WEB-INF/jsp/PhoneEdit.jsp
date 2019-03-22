@@ -48,8 +48,6 @@ function submitForm(){
 		<a href="list" style="color:white;text-decoration:none;"><h1 class="display-1">JW컴퍼니 사내 연락 시스템</h1></a>	
 	</div>
 </div>
-
-
 <br>
 	<br>
 	<br>
