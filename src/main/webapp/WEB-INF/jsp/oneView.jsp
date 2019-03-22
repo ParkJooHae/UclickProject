@@ -39,7 +39,7 @@
         <li class="nav-item ">
           <a class="nav-link" href="list">HOME<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="newForm">ADD USER</a>
         </li>
       </ul>

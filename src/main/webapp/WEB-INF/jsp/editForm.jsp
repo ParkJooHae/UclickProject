@@ -38,7 +38,7 @@
         <li class="nav-item ">
           <a class="nav-link" href="list">HOME<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="newForm">ADD USER</a>
         </li>
       </ul>
@@ -75,7 +75,6 @@
 				
 			</table>
 			<div class="container" style="text-align:center;">
-				
 						<input type=button class="btn btn-outline-secondary" value="뒤로가기" onClick="location.href='oneView?id=${editView.id}'">
 						<input type=submit class="btn btn-outline-success" value="프로필 저장"">
 			</div>
