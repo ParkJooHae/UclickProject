@@ -9,7 +9,7 @@
 <link href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
 <style>
 	footer {
-	    position:absolute;
+	    position: fixed;
 	    bottom:0;
 	    width:100%;
 		text-align:center;
@@ -97,10 +97,10 @@ function submitForm(index){
 		중복 전화기 입력 불가<br>
 		숫자만 입력 가능
 		</div>
-		<table class="table table-hover" align="center" style="text-align:center;">
+		<table class="table table-bordered" align="center" style="text-align:center;">
 				<thead>
 				<tr align="center">
-					<td width="10%">이름</td>
+					<td width="15%">이름</td>
 					<td width="10%">부서</td>
 					<td width="10%">직급</td>
 					<td colspan="2">전화 번호</td>
@@ -112,12 +112,13 @@ function submitForm(index){
 					<td><a style="color:black;text-decoration:none;" href="oneView?id=${users.id}"><b>${users.name}</b></a></td>
 					<td>${users.depart}</td>
 					<td>${users.position}</td>
-					<td width="30%">
+					<td width="20%">
 					<c:forEach items="${users.phones}" var="phones">
 						${phones.num}<br>
 					</c:forEach>
 					</td>
-					<td>
+					<td width="45%">
+					
 						<c:if test="${fn:length(users.phones) < 3}">
 							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">
 								<input class="form-control" name="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
@@ -127,7 +128,6 @@ function submitForm(index){
 								<input type="submit" class="btn btn-outline-secondary" value="전화기 추가" >
 							</form>
 						</c:if>
-						
 						<c:if test="${fn:length(users.phones) == 3}">
 							번호 등록은 3개 까지 가능합니다.	
 							<form name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">

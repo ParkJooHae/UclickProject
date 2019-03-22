@@ -36,7 +36,7 @@ public class UserController {
 	public String list(Model model, @RequestParam HashMap<String,String> map) {
 		String stringpage = map.get("page"); //현재 페이지
 		int page = userService.pagenow(stringpage).getPagenow(); // 현재 페이지
-		int cnt = 10;// 보여줄 게시물 수
+		int cnt = 5;// 보여줄 게시물 수
 		int pagenum = 10;// 보여줄 번호 수
 		
 		
