@@ -175,7 +175,7 @@ public class UserController {
 		String num3 = map.get("addNum3");
 		String num = num1 + "-" + num2 + "-"+ num3;		
 		
-		if(phoneService.existsByNum(num) == true) {
+		if(phoneService.existsByNum(num) == true) {//중복 검사
 			return "redirect:list";
 		}else {
 			if(psid == null) {

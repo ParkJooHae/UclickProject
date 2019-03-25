@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 <link href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <style>
 	footer {
 	    position: fixed;
@@ -106,6 +107,7 @@ function submitForm(index){
 			    </div>
 			  </div>
 		</div>
+		<h6><i class="fas fa-bullhorn"></i> 사원 이름을 클릭하면 사원 정보를 확인 / 수정 / 삭제 할 수 있습니다.</h6>
 		<table class="table table-bordered" align="center" style="text-align:center;">
 				<thead>
 				<tr align="center">
@@ -174,10 +176,10 @@ function submitForm(index){
 				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${lastpage}">&#9654;&#9654;</a></li>
 			</c:when>
 			<c:when test="${searchOption==1}">
-			
+				
 			</c:when>
 			<c:when test="${searchOption==2}">
-			
+				
 			</c:when>
 		</c:choose>
 		</ul>
