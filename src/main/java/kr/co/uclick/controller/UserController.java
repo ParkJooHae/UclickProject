@@ -99,11 +99,13 @@ public class UserController {
 	public String oneView(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("id");
 		long id = Long.parseLong(sid);
+		String page = map.get("page");
 		List<User> users = userService.findAllById(id);
 		for (User u: users) {
 			Hibernate.initialize(u.getPhones());
 		}
-		model.addAttribute("oneView",users);	
+		model.addAttribute("oneView",users);
+		model.addAttribute("page",page);
 		return "oneView";
 	}
 	
@@ -135,11 +137,11 @@ public class UserController {
 		
 		if(id == null) {
 			userService.Create(name, depart, position, address, special);
+		
 		}else {
 			long idl = Long.parseLong(id);
 			userService.Update(idl, name, depart, position, address, special);
 		}
-		
 		return "redirect:list";
 	}
 	
@@ -174,6 +176,7 @@ public class UserController {
 		String num = num1 + "-" + num2 + "-"+ num3;		
 		
 		if(phoneService.existsByNum(num) == true) {
+			model.addAttribute("alert","중복");
 			return "redirect:list";
 		}else {
 			if(psid == null) {

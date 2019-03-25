@@ -106,7 +106,6 @@ function submitForm(index){
 			    </div>
 			  </div>
 		</div>
-		
 		<table class="table table-bordered" align="center" style="text-align:center;">
 				<thead>
 				<tr align="center">
@@ -120,7 +119,7 @@ function submitForm(index){
 				<tbody>
 			<c:forEach items="${users}" var="users" varStatus="status">
 				<tr align="center">
-					<td><a style="color:black;text-decoration:none;" href="oneView?id=${users.id}"><b>${users.name}</b></a></td>
+					<td><a style="color:black;text-decoration:none;" href="oneView?id=${users.id}&page=${viewpage}"><b>${users.name}</b></a></td>
 					<td>${users.depart}</td>
 					<td>${users.position}</td>
 					<td width="20%">
