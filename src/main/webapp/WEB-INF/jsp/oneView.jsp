@@ -57,12 +57,11 @@
 
 <main role="main" class="flex-shrink-0">
 	<div class="container">
-		<div class="text-center" style="height:200px">
-		<br>
-		<br>
-		프로필 영역
+		<div class="container text-center">
+			<br>
+			<img src="/resources/p.png" alt="person" class="img-thumbnail">
 		</div>
-		
+		<br>
 		<c:forEach items="${oneView}" var="oneViews">
 			<table class="table table-bordered" align="center" style="text-align:center;width:50%">
 				<tr align="center" ><td style="width:30%">이름</td><td>${oneViews.name}</td></tr>

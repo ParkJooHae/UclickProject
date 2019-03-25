@@ -60,6 +60,7 @@ function submitForm(index){
 		}
 	
 }
+
 </script>
 </head>
 <body>
@@ -91,9 +92,8 @@ function submitForm(index){
   </nav>
 </header>
 <main role="main" class="flex-shrink-0">
-
-	<div class="container" >
-		<div id="carousel" class="carousel slide" data-ride="carousel">
+	<div class="container">
+		<div id="SlidesOnly" class="carousel slide" data-ride="carousel">
 			  <div class="carousel-inner">
 			    <div class="carousel-item active">
 			      <img src="/resources/0.jpg" class="d-block w-100" alt="first">
@@ -109,10 +109,10 @@ function submitForm(index){
 		<table class="table table-bordered" align="center" style="text-align:center;">
 				<thead>
 				<tr align="center">
-					<td width="15%">이름</td>
-					<td width="10%">부서</td>
-					<td width="10%">직급</td>
-					<td width="15%">전화 번호</td>
+					<td width="15%" class="align-middle">이름</td>
+					<td width="10%" class="align-middle">부서</td>
+					<td width="10%" class="align-middle">직급</td>
+					<td width="15%" class="align-middle">전화 번호</td>
 					<td >번호 추가</td>
 				</tr>
 				</thead>
@@ -127,7 +127,7 @@ function submitForm(index){
 						${phones.num}<br>
 					</c:forEach>
 					</td>
-					<td width="45%">
+					<td width="45%" class="align-middle">
 						<c:if test="${fn:length(users.phones) < 3}">
 							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.count});">
 								<input class="form-control" name="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
@@ -138,7 +138,7 @@ function submitForm(index){
 							</form>
 						</c:if>
 						<c:if test="${fn:length(users.phones) == 3}">
-							번호 등록은 3개 까지 가능합니다.	
+							<span class="badge badge-warning">번호 등록은 3개 까지 가능합니다.</span>	
 							<form name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.index});">
 								<input type="hidden" name="addNum1">
 								<input type="hidden" name="addNum2">
@@ -152,7 +152,7 @@ function submitForm(index){
 			</tbody>
 		</table>
 	</div>
-	<div class="container">
+	<nav >
 		<ul class="pagination pagination-sm" style="text-align:center;width:20%;margin-left:auto;margin-right:auto;">
 		<c:choose>
 			<c:when test="${searchOption==0}">
@@ -174,12 +174,14 @@ function submitForm(index){
 				<li class="page-item"><a style="color:black;" class="page-link" href="list?page=${lastpage}">&#9654;&#9654;</a></li>
 			</c:when>
 			<c:when test="${searchOption==1}">
+			
 			</c:when>
 			<c:when test="${searchOption==2}">
+			
 			</c:when>
 		</c:choose>
 		</ul>
-	</div>
+	</nav>
 </main>
 <footer class="footer mt-auto py-3">
   <div class="container">

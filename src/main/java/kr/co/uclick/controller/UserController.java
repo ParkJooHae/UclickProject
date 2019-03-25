@@ -176,7 +176,6 @@ public class UserController {
 		String num = num1 + "-" + num2 + "-"+ num3;		
 		
 		if(phoneService.existsByNum(num) == true) {
-			model.addAttribute("alert","중복");
 			return "redirect:list";
 		}else {
 			if(psid == null) {
@@ -188,13 +187,9 @@ public class UserController {
 				phoneService.UpdateNum(pid, num);
 				return "redirect:oneView?id="+sid;		
 			}
-	
-		}
-			
-		
-		
-			
+		}		
 	}
+	
 	
 	@RequestMapping(value = "PhoneEdit")
 	public String PhoneEdit(Model model,@RequestParam HashMap<String,String> map) {
@@ -210,6 +205,8 @@ public class UserController {
 		model.addAttribute("phoneid",pid);
 		return "PhoneEdit";
 	}
+	
+	
 	
 	
 }

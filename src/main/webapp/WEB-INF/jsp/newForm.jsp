@@ -108,13 +108,13 @@ function submitForm(){
 </header>
 <main role="main" class="flex-shrink-0">
 	<div class="container">
-		<div class="text-center" style="height:200px">
-		<br>
-		<br>
-		프로필 영역
-		<br>
-		<br>
+		<div class="container text-center">
+			<br>
+			<h1>사원 추가</h1>
+			<br>
+			<img src="/resources/p.png" alt="person" class="img-thumbnail">
 		</div>
+		<br>
 	<form action="save"  class="form-inline" onsubmit="return submitForm();">
 		<div class="container'">
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%;">

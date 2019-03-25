@@ -55,15 +55,11 @@
 </header>
 <main role="main" class="flex-shrink-0">
 	<div class="container">
-		<div class="text-center" style="height:200px">
-		<br>
-		<br>
-	
-		프로필 영역
-		<br>
-		<br>
-		
+		<div class="container text-center">
+			<br>
+			<img src="/resources/p.png" alt="person" class="img-thumbnail">
 		</div>
+		<br>
 		<form name="addPhone" action="save" class="form-inline">
 		<c:forEach items="${editView}" var="editView">
 			<table class="table table-bordered" align="center" style="text-align:center;width:50%">
