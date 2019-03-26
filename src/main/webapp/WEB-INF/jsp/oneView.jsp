@@ -24,6 +24,7 @@
 	div {
 		overflow-x:auto;
 	}
+
 </style>
 </head>
 <body>
@@ -58,6 +59,7 @@
 <main role="main" class="flex-shrink-0">
 	<div class="container">
 		<div class="container text-center">
+			
 			<br>
 			<img src="/resources/p.png" alt="person" class="img-thumbnail">
 		</div>

@@ -16,6 +16,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+
 import kr.co.uclick.entity.Phone;
 import kr.co.uclick.entity.User;
 import kr.co.uclick.service.PhoneService;
@@ -206,12 +208,8 @@ public class UserController {
 		return "PhoneEdit";
 	}
 	
-	@RequestMapping(value = "login")
-	public String login(Model model,@RequestParam HashMap<String,String> map) {
-		
 	
-		return "login";
-	}
+
 	
 	
 }
