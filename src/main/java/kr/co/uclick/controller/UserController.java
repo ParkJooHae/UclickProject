@@ -206,7 +206,12 @@ public class UserController {
 		return "PhoneEdit";
 	}
 	
+	@RequestMapping(value = "login")
+	public String login(Model model,@RequestParam HashMap<String,String> map) {
+		
 	
+		return "login";
+	}
 	
 	
 }

@@ -80,6 +80,7 @@ public class SpringConfiguration {
 		properties.setProperty(AvailableSettings.SHOW_SQL, Boolean.TRUE.toString());
 		properties.setProperty(AvailableSettings.DIALECT, MySQL5Dialect.class.getName());
 
+		//
 //		properties.setProperty(AvailableSettings.STATEMENT_BATCH_SIZE, "1000");
 //
 //		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, Boolean.TRUE.toString());

@@ -27,8 +27,22 @@
 		<property name="gridLogger">
 			<bean class="org.apache.ignite.logger.slf4j.Slf4jLogger" />
 		</property>
+	
 		<property name="cacheConfiguration">
 			<list>
+			<!--
+                Configurations for entity caches.
+            -->
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.entity.User"/>
+				</bean>
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.entity.Phone"/>
+				</bean>
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.entity.User.phones"/>
+				</bean>
+				
 				<!-- Configuration for update timestamps cache. -->
 				<bean parent="atomic-cache">
 					<property name="name"
@@ -40,6 +54,7 @@
 					<property name="name"
 						value="org.hibernate.cache.internal.StandardQueryCache" />
 				</bean>
+				
 			</list>
 		</property>
 		<property name="discoverySpi">
