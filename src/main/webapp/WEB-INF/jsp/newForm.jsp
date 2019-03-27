@@ -133,8 +133,8 @@ function submitForm(){
 		<br>
 	<form action="save"  class="form-inline" onsubmit="return submitForm();">
 		<div class="container text-center">
-		<img id="blah" src="#" alt="your image" /><br>
-		<input type='file' name="file" id="imgInp" />
+		<img id="blah" src="#" onerror="this.src='/resources/p.png'" class="img-thumbnail"/><br>
+		<input type='file' class="btn btn-outline-secondary" name="file" id="imgInp" />
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%;">
 				<tr align="center"><td  style="width:30%">이름</td><td ><input class="form-control" type=text name="name" id="name" maxlength="50" style="width:80%;"></td></tr>
 				<tr align="center"><td>부서</td><td><input class="form-control" type=text name="depart" id="depart" maxlength="50" style="width:80%;"></td></tr>
