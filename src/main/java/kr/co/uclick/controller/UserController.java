@@ -4,7 +4,10 @@ package kr.co.uclick.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Hibernate;
 import org.slf4j.Logger;
@@ -15,8 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.co.uclick.entity.Phone;
 import kr.co.uclick.entity.User;
@@ -42,7 +45,7 @@ public class UserController {
 		int pagenum = 10;// 보여줄 번호 수
 		
 		
-		///////////////////검색
+			///////////////////검색
 		String keyword = map.get("keyword");//검색 키워드
 		if(keyword==null) {//검색 키워드 디폴트
 			keyword="";
@@ -136,6 +139,9 @@ public class UserController {
 		String position = map.get("position");
 		String address = map.get("address");
 		String special = map.get("special");
+		
+
+		
 		
 		if(id == null) {
 			userService.Create(name, depart, position, address, special);

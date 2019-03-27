@@ -27,10 +27,12 @@
 	}
 	
 </style>
-<script language="javascript" type="text/javascript" >
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" >
 
 function submitForm(index){
 		var i = index;
+	
 		var addNum1 = document.forms[i].addNum1.value;
 		var addNum2 = document.forms[i].addNum2.value;
 		var addNum3 = document.forms[i].addNum3.value;
@@ -133,9 +135,9 @@ function submitForm(index){
 					<td width="45%" class="align-middle">
 						<c:if test="${fn:length(users.phones) < 3}">
 							<form class="form-inline" name="addPhone" action="phoneSave" onsubmit="return submitForm(${status.count});">
-								<input class="form-control" name="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
-								<input class="form-control" name="addNum2" maxlength="4" size="4" style="width:20%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
-								<input class="form-control" name="addNum3" maxlength="4" size="4" style="width:20%;" >
+								<input class="form-control" name="addNum1" id="addNum1" maxlength="3" size="3" style="width:15%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
+								<input class="form-control" name="addNum2" id="addNum2" maxlength="4" size="4" style="width:20%;" >&nbsp;&nbsp;-&nbsp;&nbsp;
+								<input class="form-control" name="addNum3" id="addNum3" maxlength="4" size="4" style="width:20%;" >
 								<input type="hidden" name="userid" value="${users.id}" >&nbsp;&nbsp;
 								<input type="submit" class="btn btn-outline-success" value="전화기 추가" >
 							</form>

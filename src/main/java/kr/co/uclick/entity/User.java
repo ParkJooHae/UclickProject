@@ -41,6 +41,21 @@ public class User {
 	@Column
 	private String special; // 특이사항
 	
+	@Column
+	private String profile; // 사진
+	
+	
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		if(profile == null) {
+		profile = "";
+		}
+		this.profile = profile;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -55,7 +70,7 @@ public class User {
 
 	public void setSpecial(String special) {
 		if(special ==null) {
-			special = "해당 없음";
+			special = "";
 		}
 		this.special = special;
 	}

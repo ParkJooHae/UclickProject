@@ -204,12 +204,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
-		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>jquery</artifactId>
-		    <version>3.2.1</version>
-		</dependency>
+		
 		        
 <!-- 		<dependency> -->
 <!-- 			<groupId>com.h2database</groupId> -->
@@ -242,6 +237,23 @@
  			<version>8.0.15</version>
 		</dependency>
 		
+		<!-- MultipartHttpServletRequset --> 
+		<dependency> 
+			<groupId>commons-io</groupId> 
+			<artifactId>commons-io</artifactId> 
+			<version>2.0.1</version> </dependency> 
+		<dependency> 
+			<groupId>commons-fileupload</groupId> 
+			<artifactId>commons-fileupload</artifactId> 
+			<version>1.2.2</version> 
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery</artifactId>
+		    <version>3.2.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<repositories>

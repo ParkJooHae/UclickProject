@@ -25,55 +25,72 @@
 	}
 	
 </style>
-<script language="javascript" type="text/javascript" >
-function submitForm(){
-		var name = document.forms[0].name.value;
-		var depart = document.forms[0].depart.value;
-		var position = document.forms[0].position.value;
-		var address = document.forms[0].address.value;
-		var special = document.forms[0].special.value;
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
 
-		if(name == null || name == ""){
-				alert('이름을 입력하세요.');
-				return false;
-			}
-		if(depart == null || depart == ""){
+function readURL(input) { 
+	if (input.files && input.files[0]) { 
+		var reader = new FileReader();
+			reader.onload = function (e) { 
+				$('#blah').attr('src', e.target.result); 
+				} 
+		reader.readAsDataURL(input.files[0]); 
+			} 
+		 }
+	$("#imgInp").change(function(){ 
+
+		readURL(this); 
+
+	}); 
+});
+
+function submitForm(){
+
+		var incheck = RegExp(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi);
+	
+		if($("#name").val()=="" || $("#name").val()== null){
+			alert('이름을 입력하세요.');
+			$("#name").focus();
+			return false;
+		}
+		if($("#depart").val()=="" || $("#depart").val()== null){
 			alert('부서를 입력하세요.');
+			$("#depart").focus();
 			return false;
 		}
-		if(position == null || position == ""){
+		if($("#position").val()=="" || $("#position").val()== null){
 			alert('직급을 입력하세요.');
+			$("#position").focus();
 			return false;
 		}
-		if(address == null || address == ""){
+		if($("#address").val()=="" || $("#address").val()== null){
 			alert('주소를 입력하세요.');
+			$("#address").focus();
 			return false;
 		}
-		if(name.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
-			alert('특수문자 사용이 불가능합니다.');
-			document.forms[0].name.focus();
+		
+		if(!incheck.test($("#name").val())){
+			alert('특수문자를 사용할 수 없습니다.');
+			$("#name").focus();
 			return false;
 		}
-		if(depart.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
-			alert('특수문자 사용이 불가능합니다.');
-			document.forms[0].depart.focus();
+		if(!incheck.test($("#depart").val())){
+			alert('특수문자를 사용할 수 없습니다.');
+			$("#depart").focus();
 			return false;
 		}
-		if(position.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
-			alert('특수문자 사용이 불가능합니다.');
-			document.forms[0].position.focus();
+		if(!incheck.test($("#position").val())){
+			alert('특수문자를 사용할 수 없습니다.');
+			$("#position").focus();
 			return false;
 		}
-		if(address.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
-			alert('특수문자 사용이 불가능합니다.');
-			document.forms[0].address.focus();
+		if(!incheck.test($("#address").val())){
+			alert('특수문자를 사용할 수 없습니다.');
+			$("#address").focus();
 			return false;
 		}
-		if(special.match(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi)){
-			alert('특수문자 사용이 불가능합니다.');
-			document.forms[0].special.focus();
-			return false;
-		}
+
 		
 }
 </script>
@@ -112,17 +129,18 @@ function submitForm(){
 			<br>
 			<h1>사원 추가</h1>
 			<br>
-			<img src="/resources/p.png" alt="person" class="img-thumbnail">
 		</div>
 		<br>
 	<form action="save"  class="form-inline" onsubmit="return submitForm();">
-		<div class="container'">
+		<div class="container text-center">
+		<img id="blah" src="#" alt="your image" /><br>
+		<input type='file' name="file" id="imgInp" />
 		<table class="table table-bordered" align="center" style="text-align:center;width:50%;">
-				<tr align="center"><td  style="width:30%">이름</td><td ><input class="form-control" type=text name="name" maxlength="50" style="width:80%;"></td></tr>
-				<tr align="center"><td>부서</td><td><input class="form-control" type=text name="depart" maxlength="50" style="width:80%;"></td></tr>
-				<tr align="center"><td>직급</td><td><input class="form-control" type=text name="position" maxlength="50" style="width:80%;"></td></tr>
-				<tr align="center"><td>주소</td><td><input class="form-control" type=text name="address" maxlength="50" style="width:80%;"></td></tr>
-				<tr align="center"><td>비고</td><td><input class="form-control" type=text name="special" maxlength="50" style="width:80%;"></td></tr>	
+				<tr align="center"><td  style="width:30%">이름</td><td ><input class="form-control" type=text name="name" id="name" maxlength="50" style="width:80%;"></td></tr>
+				<tr align="center"><td>부서</td><td><input class="form-control" type=text name="depart" id="depart" maxlength="50" style="width:80%;"></td></tr>
+				<tr align="center"><td>직급</td><td><input class="form-control" type=text name="position" id="position" maxlength="50" style="width:80%;"></td></tr>
+				<tr align="center"><td>주소</td><td><input class="form-control" type=text name="address" id="address" maxlength="50" style="width:80%;"></td></tr>
+				<tr align="center"><td>비고</td><td><input class="form-control" type=text name="special" id="special" maxlength="50" style="width:80%;"></td></tr>	
 		</table>
 		</div>
 		<div class="container" style="text-align:center;">
