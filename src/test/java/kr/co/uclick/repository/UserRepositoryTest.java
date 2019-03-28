@@ -24,7 +24,6 @@ public class UserRepositoryTest {
 	@Autowired
 	PhoneRepository phoneRepository;
 	
-	@Ignore
 	@Test
 	public void test() {
 		User testt = new User("park","운영","사원");//등록확인
@@ -69,7 +68,7 @@ public class UserRepositoryTest {
 		userRepository.save(usr);
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testRepo5() { // 번호 등록 테스트
 		User usr = userRepository.findById(2L).get();

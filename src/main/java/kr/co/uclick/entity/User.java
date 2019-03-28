@@ -42,8 +42,11 @@ public class User {
 	private String special; // 특이사항
 	
 	@Column
-	private String profile; // 사진
+	private String profile; // 프로필
 	
+	//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)//Phone Collection에 대하여 Cache 적용
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
+	private Collection<Phone> phones;//전화부
 	
 	public String getProfile() {
 		return profile;
@@ -74,10 +77,6 @@ public class User {
 		}
 		this.special = special;
 	}
-	
-	//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)//Phone Collection에 대하여 Cache 적용
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
-	private Collection<Phone> phones;//전화부
 	
 	public User() {
 		

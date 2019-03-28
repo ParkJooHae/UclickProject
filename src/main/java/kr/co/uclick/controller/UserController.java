@@ -44,7 +44,6 @@ public class UserController {
 		int cnt = 5;// 보여줄 게시물 수
 		int pagenum = 10;// 보여줄 번호 수
 		
-		
 			///////////////////검색
 		String keyword = map.get("keyword");//검색 키워드
 		if(keyword==null) {//검색 키워드 디폴트
@@ -58,7 +57,7 @@ public class UserController {
 		if(searchOption==0) {
 			List<User> users = userService.findAllByOrderByIdDesc(page-1, cnt);
 				for (User u: users) {
-					Hibernate.initialize(u.getPhones());
+					Hibernate.initialize(u.getPhones());//fetch type이 기본 LAZY이기 때문에 hibernate를 사용해 EAGER로 일시적 사용.
 				}
 			model.addAttribute("users",users);
 		}if(searchOption==1) {//이름으로 찾기
@@ -114,12 +113,12 @@ public class UserController {
 		return "oneView";
 	}
 	
-	@RequestMapping(value = "newForm")
+	@RequestMapping(value = "newForm")// 사용자 추가
 	public String newForm(Model model,@RequestParam HashMap<String,String> map) {
 		return "newForm";
 	}
 	
-	@RequestMapping(value = "editForm")
+	@RequestMapping(value = "editForm")//사용자 수정
 	public String editForm(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("id");
 		long id = Long.parseLong(sid);
@@ -131,7 +130,7 @@ public class UserController {
 		return "editForm";
 	}
 	
-	@RequestMapping(value = "save")
+	@RequestMapping(value = "save")// 사용자 추가 / 수정 저장
 	public String save(Model model,@RequestParam HashMap<String,String> map) {
 		String id = map.get("id");
 		String name = map.get("name");
@@ -139,10 +138,6 @@ public class UserController {
 		String position = map.get("position");
 		String address = map.get("address");
 		String special = map.get("special");
-		
-
-		
-		
 		if(id == null) {
 			userService.Create(name, depart, position, address, special);
 		
@@ -153,7 +148,7 @@ public class UserController {
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "delete")
+	@RequestMapping(value = "delete")// 사용자 삭제
 	public String delete(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("id");
 		long id = Long.parseLong(sid);
@@ -161,18 +156,9 @@ public class UserController {
 	
 		return "redirect:list";
 	}
-	
-	@RequestMapping(value = "phoneDelete")
-	public String phoneDelete(Model model,@RequestParam HashMap<String,String> map) {
-		String psid = map.get("id");
-		long pid = Long.parseLong(psid);
-		phoneService.deleteNum(pid);
-	
-		return "redirect:list";
-	}
-	
 
-	@RequestMapping(value = "phoneSave")
+
+	@RequestMapping(value = "phoneSave")// 전화기 추가 / 수정 저장
 	public String phoneSave(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("userid");
 		
@@ -197,9 +183,7 @@ public class UserController {
 			}
 		}		
 	}
-	
-	
-	@RequestMapping(value = "PhoneEdit")
+	@RequestMapping(value = "PhoneEdit")//전화기 수정
 	public String PhoneEdit(Model model,@RequestParam HashMap<String,String> map) {
 		String sid = map.get("id");
 		String psid = map.get("pid");
@@ -213,7 +197,14 @@ public class UserController {
 		model.addAttribute("phoneid",pid);
 		return "PhoneEdit";
 	}
+	@RequestMapping(value = "phoneDelete")// 전화기 삭제
+	public String phoneDelete(Model model,@RequestParam HashMap<String,String> map) {
+		String psid = map.get("id");
+		long pid = Long.parseLong(psid);
+		phoneService.deleteNum(pid);
 	
+		return "redirect:list";
+	}
 	
 
 	

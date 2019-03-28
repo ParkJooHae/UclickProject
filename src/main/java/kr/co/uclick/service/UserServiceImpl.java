@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 //	@Transactional(readOnly = true)
 	public List<User> findAllByOrderByIdDesc(int page, int cnt) {
-
 		return userRepository.findAllByOrderByIdDesc(PageRequest.of(page, cnt)).getContent();
 	}
 	
