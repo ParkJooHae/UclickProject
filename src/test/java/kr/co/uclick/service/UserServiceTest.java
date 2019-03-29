@@ -27,7 +27,7 @@ public class UserServiceTest {
 	@Ignore
 	@Test
 	public void test1() {// 정보 수정
-		//userService.Update(2L, "정보수정", "부서명", "직급","경기도","휴가중");
+		userService.Update(2L, "정보수정", "부서명", "직급","경기도","휴가중");
 		
 		userService.findAllById(1L);
 	}
@@ -44,7 +44,7 @@ public class UserServiceTest {
 		phoneService.AddNum(2L, "000-4444-4444");
 		phoneService.AddNum(2L, "000-5555-5555");
 		
-		//userService.Delete(3L);
+//		userService.Delete(3L);
 		
 	}
 	

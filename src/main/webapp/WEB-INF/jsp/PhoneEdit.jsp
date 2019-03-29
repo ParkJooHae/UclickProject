@@ -124,7 +124,7 @@ function submitForm(){
 							</c:when>
 							<c:otherwise>
 								<td>${phones.num}</td>
-								<td><input type=hidden name="phoneid" value="${phones.id}"></td>
+								<td><input type=hidden></td>
 							</c:otherwise>
 							</c:choose>
 						</tr>

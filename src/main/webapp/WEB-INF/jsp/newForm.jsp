@@ -27,27 +27,9 @@
 </style>
 <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"> 
-$(document).ready(function(){ 
-
-function readURL(input) { 
-	if (input.files && input.files[0]) { 
-		var reader = new FileReader();
-			reader.onload = function (e) { 
-				$('#blah').attr('src', e.target.result); 
-				} 
-		reader.readAsDataURL(input.files[0]); 
-			} 
-		 }
-	$("#imgInp").change(function(){ 
-
-		readURL(this); 
-
-	}); 
-});
-
 function submitForm(){
 
-		var incheck = RegExp(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/gi);
+		var incheck = RegExp(/^[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9\s\.]/);
 	
 		if($("#name").val()=="" || $("#name").val()== null){
 			alert('이름을 입력하세요.');
@@ -90,9 +72,29 @@ function submitForm(){
 			$("#address").focus();
 			return false;
 		}
-
-		
+		if($("#name").val().length > 20){
+			alert('20자 이상은 입력할 수 없습니다.');
+			$("#name").focus();
+			return false;
+			}
 }
+$(document).ready(function(){ 
+
+	function readURL(input) { 
+		if (input.files && input.files[0]) { 
+			var reader = new FileReader();
+				reader.onload = function (e) { 
+					$('#blah').attr('src', e.target.result); 
+					} 
+			reader.readAsDataURL(input.files[0]); 
+				} 
+			 }
+		$("#imgInp").change(function(){ 
+
+			readURL(this); 
+
+		}); 
+});	
 </script>
 </head>
 <body>

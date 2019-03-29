@@ -18,12 +18,12 @@ public class PhoneServiceTest {
 	
 	@Test
 	public void test1() {
-		//phoneService.AddNum(2L, "000-3434-3434");// 번호 추가
-		
-		//phoneService.UpdateNum(11L, "010-4545-9292");// 번호 수정
-		
-		//phoneService.deleteNum(11L); // 번호 삭제
-		
+//		phoneService.AddNum(2L, "000-3434-3434");// 번호 추가
+//		
+//		phoneService.UpdateNum(11L, "010-4545-9292");// 번호 수정
+//		
+//		phoneService.deleteNum(11L); // 번호 삭제
+//		
 		
 	}
 	

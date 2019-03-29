@@ -44,7 +44,7 @@ public class User {
 	@Column
 	private String profile; // 프로필
 	
-	//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)//Phone Collection에 대하여 Cache 적용
+//	@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)//Phone Collection에 대하여 Cache 적용
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private Collection<Phone> phones;//전화부
 	
