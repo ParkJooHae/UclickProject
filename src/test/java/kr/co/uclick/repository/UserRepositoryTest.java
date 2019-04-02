@@ -23,7 +23,7 @@ public class UserRepositoryTest {
 	UserRepository userRepository;
 	@Autowired
 	PhoneRepository phoneRepository;
-	
+	@Ignore
 	@Test
 	public void test() {
 		User testt = new User("park","운영","사원");//등록확인
@@ -54,12 +54,6 @@ public class UserRepositoryTest {
 	
 	@Ignore
 	@Test
-	public void testRepo3() { // 번호 검색 테스트
-		List<Phone> list = phoneRepository.findByNumContaining("1111");
-		System.out.println(list);
-	}
-	@Ignore
-	@Test
 	public void testRepo4() {// 사원 등록 테스트
 		User usr = new User();
 		usr.setName("Lee");
@@ -70,12 +64,24 @@ public class UserRepositoryTest {
 	
 	@Ignore
 	@Test
+	public void testRepo3() { // 번호 검색 테스트
+		List<Phone> list = phoneRepository.findByNumContaining("1111");
+		System.out.println(list);
+	}
+
+
+	@Test
 	public void testRepo5() { // 번호 등록 테스트
-		User usr = userRepository.findById(2L).get();
-		Phone phone = new Phone("000-2424-2424");
-		//usr.addPhone(new Phone("000-2424-2424"));
-		phone.setUser(usr);
-		phoneRepository.save(phone);
+//		User usr = userRepository.findById(2L).get();
+//		Phone phone = new Phone("000-2424-2424");
+//		//usr.addPhone(new Phone("000-2424-2424"));
+//		phone.setUser(usr);
+//		phoneRepository.save(phone);
+//		
+		userRepository.findById(2L).get();
+		userRepository.findById(2L).get();
+		userRepository.findById(2L).get();
+		
 	}
 	
 	

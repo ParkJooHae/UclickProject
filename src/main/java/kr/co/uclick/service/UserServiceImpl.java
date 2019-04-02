@@ -32,19 +32,17 @@ public class UserServiceImpl implements UserService {
 	public List<User> findUserByNameContaining(String name,int page, int cnt) {
 		return userRepository.findUserByNameContaining(name, PageRequest.of(page, cnt)).getContent();
 	}
-
+	@Override
+	public List<User> findAllById(Long id) {
+		return userRepository.findAllById(id);
+	}
+	
+	
 	@Override
 //	@Transactional(readOnly = true)
 	public List<User> findAllByOrderByIdDesc(int page, int cnt) {
 		return userRepository.findAllByOrderByIdDesc(PageRequest.of(page, cnt)).getContent();
 	}
-	
-
-	@Override
-	public List<User> findAllById(Long id) {
-		return userRepository.findAllById(id);
-	}
-
 	@Override
 	public void Create(String name, String depart, String position, String address, String special) {
 		User usr = new User();
@@ -55,7 +53,6 @@ public class UserServiceImpl implements UserService {
 		usr.setSpecial(special);
 		userRepository.save(usr);
 	}
-	
 	@Override
 	public void Update(Long id, String name, String depart, String position, String address, String special) {
 		User usr = userRepository.getOne(id);
@@ -67,7 +64,6 @@ public class UserServiceImpl implements UserService {
 		userRepository.save(usr);
 		
 	}
-
 	@Override
 	public void Delete(Long id) {
 		userRepository.deleteById(id);
@@ -84,9 +80,7 @@ public class UserServiceImpl implements UserService {
 			
 		}else if(searchOption==2) {
 			
-		}
-		
-		
+		}	
 		return userDto;
 	}
 

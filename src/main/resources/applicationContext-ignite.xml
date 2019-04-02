@@ -30,19 +30,7 @@
 	
 		<property name="cacheConfiguration">
 			<list>
-			<!--
-                Configurations for entity caches.
-            -->
-				<bean parent="transactional-cache">
-				<property name="name" value="kr.co.entity.User"/>
-				</bean>
-				<bean parent="transactional-cache">
-				<property name="name" value="kr.co.entity.Phone"/>
-				</bean>
-				<bean parent="transactional-cache">
-				<property name="name" value="kr.co.entity.User.phones"/>
-				</bean>
-				
+			
 				<!-- Configuration for update timestamps cache. -->
 				<bean parent="atomic-cache">
 					<property name="name"
@@ -54,7 +42,20 @@
 					<property name="name"
 						value="org.hibernate.cache.internal.StandardQueryCache" />
 				</bean>
-				
+			
+				<!--
+                Configurations for entity caches.
+            -->
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.uclick.entity.User"/>
+				</bean>
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.uclick.entity.Phone"/>
+				</bean>
+				<bean parent="transactional-cache">
+				<property name="name" value="kr.co.uclick.entity.User.phones"/>
+				</bean>
+					
 			</list>
 		</property>
 		<property name="discoverySpi">
@@ -90,4 +91,16 @@
 		<property name="atomicityMode" value="TRANSACTIONAL" />
 		<property name="writeSynchronizationMode" value="FULL_SYNC" />
 	</bean>
+	<!-- 캐시 매니저 추가 -->
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+					<property name="name" value="area"/>
+				</bean>
+			</set>
+		</property>
+	</bean>
+	
+	
 </beans>

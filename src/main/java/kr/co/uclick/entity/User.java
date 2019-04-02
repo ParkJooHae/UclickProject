@@ -1,5 +1,6 @@
 package kr.co.uclick.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,9 +18,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity 
 @Cacheable
-//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)//L2 Cache적용
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)//L2 Cache적용
 @TableGenerator(name = "usernum",allocationSize = 1)
-public class User {
+public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO,generator = "usernum")
@@ -44,7 +45,7 @@ public class User {
 	@Column
 	private String profile; // 프로필
 	
-//	@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)//Phone Collection에 대하여 Cache 적용
+	@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)//Phone Collection에 대하여 Cache 적용
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private Collection<Phone> phones;//전화부
 	

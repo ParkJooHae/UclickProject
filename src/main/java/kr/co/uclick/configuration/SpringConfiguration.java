@@ -10,6 +10,7 @@ import org.apache.ignite.cache.hibernate.HibernateRegionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.dialect.H2Dialect;
 import org.hibernate.dialect.MySQL5Dialect;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -29,10 +31,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-//@ImportResource(locations = "classpath:applicationContext-ignite.xml")
+@ImportResource(locations = "classpath:applicationContext-ignite.xml")
 @ComponentScans({ @ComponentScan({ "kr.co.uclick.service" }) })
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @EnableSpringConfigured
+@EnableCaching
 @EnableJpaRepositories(basePackages = "kr.co.uclick.repository")
 public class SpringConfiguration {
 
@@ -46,9 +49,19 @@ public class SpringConfiguration {
 		dataSource.setPassword("pjh8134");
 		return dataSource;
 	}
-
+	
 	@Bean
-//	@DependsOn("igniteSystem")
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		sessionFactory.setDataSource(dataSource());
+		sessionFactory.setPackagesToScan(new String[] {"kr.co.ulick.entity"});
+		sessionFactory.setHibernateProperties(additionalProperties());
+		
+		return sessionFactory;
+	}
+	
+	@Bean
+	@DependsOn("igniteSystem")
 	@Primary
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -81,18 +94,18 @@ public class SpringConfiguration {
 		properties.setProperty(AvailableSettings.DIALECT, MySQL5Dialect.class.getName());
 
 		//
-//		properties.setProperty(AvailableSettings.STATEMENT_BATCH_SIZE, "1000");
-//
-//		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, Boolean.TRUE.toString());
-//		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, Boolean.TRUE.toString());
-//		
-//		
-//		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString());
-//		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, HibernateRegionFactory.class.getName());
-//
-//		
-//		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid");
-//		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE");
+		properties.setProperty(AvailableSettings.STATEMENT_BATCH_SIZE, "1000");
+
+		properties.setProperty(AvailableSettings.USE_SECOND_LEVEL_CACHE, Boolean.TRUE.toString());
+		properties.setProperty(AvailableSettings.USE_QUERY_CACHE, Boolean.TRUE.toString());
+		
+		
+		properties.setProperty(AvailableSettings.GENERATE_STATISTICS, Boolean.FALSE.toString());
+		properties.setProperty(AvailableSettings.CACHE_REGION_FACTORY, HibernateRegionFactory.class.getName());
+
+		
+		properties.setProperty("org.apache.ignite.hibernate.ignite_instance_name", "cafe-grid");
+		properties.setProperty("org.apache.ignite.hibernate.default_access_type", "NONSTRICT_READ_WRITE");
 
 		properties.setProperty(AvailableSettings.PHYSICAL_NAMING_STRATEGY,
 				CustomPhysicalNamingStrategyStandardImpl.class.getName());

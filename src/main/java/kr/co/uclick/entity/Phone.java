@@ -1,5 +1,7 @@
 package kr.co.uclick.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +17,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Cacheable
-//@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONE)// L2 Cache 적용
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)// L2 Cache 적용
 @TableGenerator(name = "phonenum",allocationSize = 1)// ,allocationSize = 1 hibernate_sequences를 1씩 으르도록
-public class Phone {
+public class Phone implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "phonenum")//generator로 두 테이블의 id가 겹치지 않도록 해준다.

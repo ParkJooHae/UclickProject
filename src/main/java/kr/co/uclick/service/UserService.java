@@ -10,13 +10,14 @@ public interface UserService {
 	
 	public List<User> findUserByName(String name);//검색
 	public List<User> findUserByNameContaining(String name,int page, int cnt);//포함 검색
-	public List<User> findAllByOrderByIdDesc(int page, int cnt);//전체검색
 	
 	
+	public List<User> findAllByOrderByIdDesc(int page, int cnt);//전체조회
+	public List<User> findAllById(Long id);//하나 조회
 	void Create(String name, String depart, String position, String address, String special); // 신규 작성
 	void Update(Long id, String name, String depart, String position, String address, String special); // 정보 수정
 	void Delete(Long id);// 삭제
-	public List<User> findAllById(Long id);//하나 조회
+	
 	
 	UserDto findPage(int page, int cnt, int searchOption, String keyword);//전체 페이지를 계산
 	
